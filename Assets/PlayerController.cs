@@ -15,13 +15,20 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public float jumpHeight;
     public float gravity;
-
     float verticalVelocity;
     Vector3 movement;
+
+    // Health
+    public float maxHealth;
+    float curHealth;
+    public float CurHealth { get { return curHealth; } set { curHealth = value; } }
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        curHealth = maxHealth;
+
     }
 
     void Update()
@@ -36,6 +43,11 @@ public class PlayerController : MonoBehaviour
         MovePlayer();
     }
 
+    void Damage(int value)
+    {
+        curHealth -= value;
+    }
+        
     void MovePlayer()
     {
         // getting movement value
