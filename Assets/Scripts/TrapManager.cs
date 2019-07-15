@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrapManager : MonoBehaviour
-{
+public enum TrapType { Cooldown, Fueled, OneUse }
 
-    public enum TrapType { Cooldown, Fueled, OneUse }
-
+public class TrapManager : MonoBehaviour {
     // General
     public TrapType type;
     public int trapDamage;
@@ -17,42 +15,30 @@ public class TrapManager : MonoBehaviour
     bool readyToActivate = true;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
+    void OnTriggerEnter(Collider other) {
         // If you enter a cooldown type trap, activate it 
-        if(other.gameObject.tag == "Player" && type == TrapType.Cooldown)
-        {
-            if(readyToActivate)
-            Activate(other.gameObject);
+        if (other.gameObject.tag == "Player" && type == TrapType.Cooldown) {
+            if (readyToActivate)
+                Activate(other.gameObject);
         }
     }
 
-    void Activate(GameObject player)
-    {
+    void Activate(GameObject player) {
         anim.SetTrigger("Activate");
-        player.GetComponent<PlayerController>().SendMessage("Damage", trapDamage);
+        player.GetComponent<PlayerController>().Damage(trapDamage);
 
-        if(type == TrapType.Cooldown)
-        {
+        if (type == TrapType.Cooldown) {
             readyToActivate = false;
             StartCoroutine(CooldownSequence());
         }
     }
 
     // wait for Cooldown
-    IEnumerator CooldownSequence()
-    {
+    IEnumerator CooldownSequence() {
         yield return new WaitForSeconds(trapCooldown);
         readyToActivate = true;
     }

@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
-{
+public class PlayerController : MonoBehaviour {
     // Input
     float horizontalInput;
     float verticalInput;
@@ -21,35 +20,36 @@ public class PlayerController : MonoBehaviour
     // Health
     public float maxHealth;
     float curHealth;
-    public float CurHealth { get { return curHealth; } set { curHealth = value; } }
+    public float CurHealth { get => curHealth; set => curHealth = value; }
 
-
-    void Start()
-    {
+    void Start() {
         rb = GetComponent<Rigidbody>();
         curHealth = maxHealth;
-
     }
 
-    void Update()
-    {
+    void Update() {
         horizontalInput = GetHorizontalInput();
         verticalInput = GetVerticalInput();
         Jump();
     }
 
-    private void FixedUpdate()
-    {
+    private void FixedUpdate() {
         MovePlayer();
     }
 
-    void Damage(int value)
-    {
+    public void Damage(int value) {
         curHealth -= value;
-    }
         
-    void MovePlayer()
-    {
+        if (curHealth > maxHealth) {
+            curHealth = maxHealth;
+        }
+
+        if (curHealth < 0) {
+            curHealth = 0;
+        }
+    }
+
+    void MovePlayer() {
         // getting movement value
         movement = (transform.forward * verticalInput) + (transform.right * horizontalInput);
         // normalizing movement
@@ -62,44 +62,36 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector3(rb.velocity.x, verticalVelocity, rb.velocity.z);
     }
 
-    void Jump()
-    {
-        if(isGrounded())
-        {
-            if(verticalVelocity <= 0)
+    void Jump() {
+        if (isGrounded()) {
+            if (verticalVelocity <= 0)
                 verticalVelocity = 0;
 
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
+            if (Input.GetKeyDown(KeyCode.Space)) {
                 verticalVelocity = jumpHeight;
             }
         }
-        else
-        {
+        else {
             verticalVelocity -= gravity * Time.deltaTime;
         }
     }
 
 
     #region Getting Player Input
-    float GetHorizontalInput()
-    {
+    float GetHorizontalInput() {
         float r = 0;
         r += Input.GetAxis("Horizontal");
         return Mathf.Clamp(r, -1.0f, 1.0f);
     }
 
-    float GetVerticalInput()
-    {
+    float GetVerticalInput() {
         float r = 0;
         r += Input.GetAxis("Vertical");
         return Mathf.Clamp(r, -1.0f, 1.0f);
-
     }
     #endregion
 
-    bool isGrounded()
-    {
+    bool isGrounded() {
         Ray rayCenter = new Ray(transform.position, transform.up);
         Ray rayLeft = new Ray(new Vector3(transform.position.x + 0, transform.position.y, transform.position.z), -transform.up);
         Ray rayRight = new Ray(new Vector3(transform.position.x - 0, transform.position.y, transform.position.z), -transform.up);
@@ -140,11 +132,11 @@ public class PlayerController : MonoBehaviour
 
         if (Physics.Raycast(rayCenter, out hit, rayDistance) || Physics.Raycast(rayLeft, out hit, rayDistance) || Physics.Raycast(rayRight, out hit, rayDistance) || Physics.Raycast(rayUp, out hit, rayDistance) || Physics.Raycast(rayDown, out hit, rayDistance)
              || Physics.Raycast(diagonalDownLeft, out hit, rayDistance) || Physics.Raycast(diagonalDownRight, out hit, rayDistance) || Physics.Raycast(diagonalUpLeft, out hit, rayDistance) || Physics.Raycast(diagonalUpRight, out hit, rayDistance)
-             || Physics.Raycast(SmalldiagonalDownLeft, out hit, rayDistance) || Physics.Raycast(SmalldiagonalDownRight, out hit, rayDistance) || Physics.Raycast(SmalldiagonalUpLeft, out hit, rayDistance) || Physics.Raycast(SmalldiagonalUpRight, out hit, rayDistance))
-        {
+             || Physics.Raycast(SmalldiagonalDownLeft, out hit, rayDistance) || Physics.Raycast(SmalldiagonalDownRight, out hit, rayDistance) || Physics.Raycast(SmalldiagonalUpLeft, out hit, rayDistance) || Physics.Raycast(SmalldiagonalUpRight, out hit, rayDistance)) {
             return true;
         }
-        else
+        else {
             return false;
+        }
     }
 }
