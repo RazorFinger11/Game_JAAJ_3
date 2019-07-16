@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour {
     public float gravity;
     float verticalVelocity;
     Vector3 movement;
+    public Animator anim;
 
     // Health
     public float maxHealth;
@@ -33,11 +34,17 @@ public class PlayerController : MonoBehaviour {
         Jump();
     }
 
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
         MovePlayer();
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            anim.SetTrigger("ATTACK");
+        }
     }
 
-    public void Damage(int value) {
+        public void Damage(int value) {
         curHealth -= value;
         
         if (curHealth > maxHealth) {
@@ -89,6 +96,8 @@ public class PlayerController : MonoBehaviour {
         r += Input.GetAxis("Vertical");
         return Mathf.Clamp(r, -1.0f, 1.0f);
     }
+
+   
     #endregion
 
     bool isGrounded() {
