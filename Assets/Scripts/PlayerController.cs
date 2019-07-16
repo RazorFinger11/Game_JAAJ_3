@@ -23,6 +23,12 @@ public class PlayerController : MonoBehaviour {
     float curHealth;
     public float CurHealth { get => curHealth; set => curHealth = value; }
 
+    // Fuel
+    int fuel;
+    public int Fuel { get => fuel; set => fuel = value; }
+    public int maxFuel = 3;
+    public FuelSpawner fuelSpawnerScript;
+
     void Start() {
         rb = GetComponent<Rigidbody>();
         curHealth = maxHealth;
@@ -53,6 +59,18 @@ public class PlayerController : MonoBehaviour {
 
         if (curHealth < 0) {
             curHealth = 0;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Fuel" && fuel < maxFuel)
+        {
+            fuelSpawnerScript.transformVectors.Add(this.transform.position);
+            fuelSpawnerScript.CurFuels--;
+            fuelSpawnerScript.CurTime = 0;
+            Destroy(other.gameObject);
+            fuel++;
         }
     }
 
@@ -119,7 +137,7 @@ public class PlayerController : MonoBehaviour {
 
         RaycastHit hit;
 
-        float rayDistance = 1f;
+        float rayDistance = 1.05f;
 
         // ------------- SIDE RAYCASTS ------------------
         Debug.DrawLine(transform.position, transform.position + transform.up * rayDistance, Color.green);

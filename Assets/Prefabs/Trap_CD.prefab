@@ -4246,8 +4246,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  trapDamage: 10
-  trapCooldown: 5
+  trapDamage: 5
+  trapCooldown: 10
+  interval: 10
+  DamagePerFuel: 0
+  maxFuel: 0
 --- !u!65 &2572232616508877142
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ public class TrapManager : MonoBehaviour
     public TrapType type;
     public int trapDamage;
     Animator anim;
+    GameObject player;
 
     // Cooldowns
     public float trapCooldown;
@@ -19,25 +20,51 @@ public class TrapManager : MonoBehaviour
     //DoT
     public int interval = 10;
 
+    //Fueled
+    public int DamagePerFuel;
+    public int maxFuel;
+    int curFuel;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        player = GameObject.Find("Player");
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if(type == TrapType.Fueled)
+        trapDamage = DamagePerFuel * curFuel;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         // If you enter a cooldown type trap, activate it 
-        if(other.gameObject.tag == "Player" && type == TrapType.Cooldown)
+        if(other.gameObject.tag == "playerAttack" && type == TrapType.Cooldown)
         {
             if(readyToActivate)
-            Activate(other.gameObject);
+            Activate();
+        }
+        // If you enter a Fuel Trap
+        else if(other.gameObject.tag == "playerAttack" && type == TrapType.Fueled)
+        {
+            // Add the fuel in the machine
+            if (curFuel <= maxFuel)
+            {
+                // if you have more than the capacity, only add the capacity
+                if (player.GetComponent<PlayerController>().Fuel > (maxFuel - curFuel))
+                {
+                    player.GetComponent<PlayerController>().Fuel -= (maxFuel - curFuel);
+                    curFuel += (maxFuel - curFuel);
+                }
+                else
+                {
+                    // If you dont, add everything
+                    curFuel += player.GetComponent<PlayerController>().Fuel;
+                    player.GetComponent<PlayerController>().Fuel = 0;
+                }
+            }
         }
     }
 
@@ -46,11 +73,30 @@ public class TrapManager : MonoBehaviour
         if(other.gameObject.tag == "Player" && type == TrapType.DamageOverTime)
         {
             if(Time.frameCount % interval == 0)
-            other.GetComponent<PlayerController>().SendMessage("Damage", trapDamage);
+            player.GetComponent<PlayerController>().SendMessage("Damage", trapDamage);
+        }
+
+        // If he presses the attack
+        if (other.gameObject.tag == "Player" && type == TrapType.Fueled)
+        {
+            // If he presses the button inside the playing area
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Activate();
+            }
+        }
+
+        // If your hands enter a One Use trap
+        if (other.gameObject.tag == "playerAttack" && type == TrapType.OneUse)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Activate();
+            }
         }
     }
 
-    void Activate(GameObject player)
+    void Activate()
     {
         anim.SetTrigger("Activate");
         player.GetComponent<PlayerController>().SendMessage("Damage", trapDamage);
@@ -59,6 +105,15 @@ public class TrapManager : MonoBehaviour
         {
             readyToActivate = false;
             StartCoroutine(CooldownSequence());
+        }
+        if(type == TrapType.Fueled)
+        {
+            curFuel = 0;
+            trapDamage = 0;
+        }
+        if(type == TrapType.OneUse)
+        {
+            Destroy(this.gameObject);
         }
     }
 

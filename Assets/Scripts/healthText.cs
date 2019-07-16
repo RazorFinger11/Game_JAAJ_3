@@ -5,16 +5,14 @@ using TMPro;
 
 public class healthText : MonoBehaviour
 {
-    TextMeshProUGUI healthUI;
+    public TextMeshProUGUI healthUI;
+    public TextMeshProUGUI fuelUI;
     public PlayerController playerScript;
-
-    private void Start()
-    {
-        healthUI = GetComponent<TextMeshProUGUI>();
-    }
 
     void Update()
     {
+
         healthUI.text = playerScript.CurHealth + "/" + playerScript.maxHealth;
+        fuelUI.text = playerScript.Fuel.ToString();
     }
 }
