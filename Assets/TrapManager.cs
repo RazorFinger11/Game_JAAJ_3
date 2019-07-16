@@ -1,11 +1,11 @@
-﻿using System.Collections;
+﻿    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TrapManager : MonoBehaviour
 {
 
-    public enum TrapType { Cooldown, Fueled, OneUse }
+    public enum TrapType { Cooldown, Fueled, OneUse, DamageOverTime }
 
     // General
     public TrapType type;
@@ -15,6 +15,9 @@ public class TrapManager : MonoBehaviour
     // Cooldowns
     public float trapCooldown;
     bool readyToActivate = true;
+
+    //DoT
+    public int interval = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +38,15 @@ public class TrapManager : MonoBehaviour
         {
             if(readyToActivate)
             Activate(other.gameObject);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject.tag == "Player" && type == TrapType.DamageOverTime)
+        {
+            if(Time.frameCount % interval == 0)
+            other.GetComponent<PlayerController>().SendMessage("Damage", trapDamage);
         }
     }
 
