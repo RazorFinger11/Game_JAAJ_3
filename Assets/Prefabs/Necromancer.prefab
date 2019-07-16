@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 112574460091433950}
   - component: {fileID: 112574460091433923}
   - component: {fileID: 112574460091433922}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Necromancer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,8 +60,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   spawnPoints: {fileID: 0}
-  minActiveTime: 4.4
-  maxActiveTime: 8.52
+  checkSpawnMask:
+    serializedVersion: 2
+    m_Bits: 0
+  minAttackTime: 3
+  maxAttackTime: 10
+  bulletPrefab: {fileID: 0}
+  fireRate: 1
 --- !u!1 &5685418317120479592
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,7 +78,7 @@ GameObject:
   - component: {fileID: 4458640747183324937}
   - component: {fileID: 513992377293085877}
   - component: {fileID: 3908731930627433154}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}

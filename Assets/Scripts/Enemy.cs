@@ -7,12 +7,14 @@ public class Enemy : MonoBehaviour {
     [SerializeField] GameObject target;
 
     //this game object is just empty, its children are the actual points of teleport
-    [SerializeField] GameObject spawnPoints;    
+    [SerializeField] GameObject spawnPoints;
     Transform[] points;
+    //mark all objects that can block the spawn (currently including other enemies)
+    [SerializeField] LayerMask checkSpawnMask;
 
     //time the enemy can be active
-    [Range(3, 10)] [SerializeField] float minAttackTime = 3f;
-    [Range(3, 10)] [SerializeField] float maxAttackTime = 10f;
+    [Range(0, 10)] [SerializeField] float minAttackTime = 3f;
+    [Range(0, 10)] [SerializeField] float maxAttackTime = 10f;
 
     [SerializeField] Bullet bulletPrefab;
     float timeToFire;
@@ -28,10 +30,14 @@ public class Enemy : MonoBehaviour {
 
     void Update() {
         //teleport enemy based on random value between min and max active time
-        if (!attacking) {
-            this.transform.position = points[Random.Range(0, points.Length)].position;
-            attacking = true;
-            StartCoroutine(WaitForAttack(Random.Range(minAttackTime, maxAttackTime)));
+        if (!attacking) {            
+            Transform[] viablePoints = CheckViablePoints();
+
+            if (viablePoints.Length > 0) {
+                this.transform.position = viablePoints[Random.Range(0, viablePoints.Length)].position;
+                attacking = true;
+                StartCoroutine(WaitForAttack(Random.Range(minAttackTime, maxAttackTime)));
+            }
         }
         else {
             //look at player and shoot life at certain firerate
@@ -45,8 +51,27 @@ public class Enemy : MonoBehaviour {
         }
     }
 
+    Transform[] CheckViablePoints() {
+        var viablePoints = new HashSet<Transform>();
+
+        foreach (Transform point in points) {
+            if (!Physics.CheckSphere(point.position, .5f, checkSpawnMask)) {
+                viablePoints.Add(point);
+            }
+        }
+
+        return viablePoints.ToArray();
+    }
+
     IEnumerator WaitForAttack(float time) {
         yield return new WaitForSeconds(time);        
         attacking = false;
+    }
+
+    void OnDrawGizmos() {
+        foreach (Transform point in points) {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(point.position, .5f);
+        }
     }
 }
