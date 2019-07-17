@@ -15,6 +15,10 @@ public class TrapManager : MonoBehaviour
 
     // Cooldowns
     public float trapCooldown;
+
+    float curTime;
+    public float CurTime { get => curTime; set => curTime = value; }
+
     bool readyToActivate = true;
 
     //DoT
@@ -24,10 +28,12 @@ public class TrapManager : MonoBehaviour
     public int DamagePerFuel;
     public int maxFuel;
     int curFuel;
+    public int CurFuel { get => curFuel; set => curFuel = value; }
 
     // Start is called before the first frame update
     void Start()
     {
+        curTime = trapCooldown;
         anim = GetComponent<Animator>();
         player = GameObject.Find("Player");
     }
@@ -121,7 +127,12 @@ public class TrapManager : MonoBehaviour
     // wait for Cooldown
     IEnumerator CooldownSequence()
     {
-        yield return new WaitForSeconds(trapCooldown);
+        while (curTime > 0)
+        {
+            curTime -= 1;
+            yield return new WaitForSeconds(1f);
+        }
         readyToActivate = true;
+        curTime = trapCooldown;
     }
 }
