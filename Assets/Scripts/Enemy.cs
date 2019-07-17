@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour {
 
     void Update() {
         //teleport enemy based on random value between min and max active time
-        if (!attacking) {            
+        if (!attacking) {
             Transform[] viablePoints = CheckViablePoints();
 
             if (viablePoints.Length > 0) {
@@ -64,14 +64,14 @@ public class Enemy : MonoBehaviour {
     }
 
     IEnumerator WaitForAttack(float time) {
-        yield return new WaitForSeconds(time);        
+        yield return new WaitForSeconds(time);
         attacking = false;
     }
 
-    void OnDrawGizmos() {
-        foreach (Transform point in points) {
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(point.position, .5f);
-        }
-    }
+    //void OnDrawGizmos() {
+    //    foreach (Transform point in points) {
+    //        Gizmos.color = Color.green;
+    //        Gizmos.DrawWireSphere(point.position, .5f);
+    //    }
+    //}
 }
