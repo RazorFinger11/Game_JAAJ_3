@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 907140851849243857}
   - component: {fileID: 907140851849243856}
   - component: {fileID: 907140851849243869}
+  - component: {fileID: 3327856892034853401}
   m_Layer: 0
   m_Name: Trap_OneUse
   m_TagString: Untagged
@@ -1406,8 +1407,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
-  trapDamage: 25
+  trapDamage: 15
   trapCooldown: 0
   interval: 0
   DamagePerFuel: 0
   maxFuel: 0
+--- !u!95 &3327856892034853401
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907140851849243863}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 73e636b5a34423c4fa182b88d0e95ce2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
