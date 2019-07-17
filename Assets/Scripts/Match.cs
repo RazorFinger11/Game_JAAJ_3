@@ -6,6 +6,7 @@ public class Match : MonoBehaviour {
     [SerializeField] int matchTime;
     public static int currentMatchTime;
     public static bool gameFinished;
+    public PlayerController playerScript; 
 
     float time;    
 
@@ -19,7 +20,7 @@ public class Match : MonoBehaviour {
             time = Time.time + 1f;
             currentMatchTime--;
 
-            if (currentMatchTime == 0) {
+            if (currentMatchTime == 0 || playerScript.CurHealth <= 0) {
                 gameFinished = true;
             }
         }

@@ -77,7 +77,7 @@ public class TrapManager : MonoBehaviour
         }
 
         // If he presses the attack
-        if (other.gameObject.tag == "Player" && type == TrapType.Fueled)
+        if (other.gameObject.tag == "playerAttack" && type == TrapType.Fueled)
         {
             // If he presses the button inside the playing area
             if (Input.GetButtonDown("Fire1"))
@@ -89,6 +89,7 @@ public class TrapManager : MonoBehaviour
         // If your hands enter a One Use trap
         if (other.gameObject.tag == "playerAttack" && type == TrapType.OneUse)
         {
+            Debug.Log("does this count");
             if (Input.GetButtonDown("Fire1"))
             {
                 Activate();

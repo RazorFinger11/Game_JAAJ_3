@@ -13,12 +13,23 @@ public class UIManager : MonoBehaviour {
     [SerializeField] GameObject victoryPanel;
     [SerializeField] GameObject defeatPanel;
 
+    float minutes;
+    float seconds;
+    string niceTime;
+
     bool gameFinished;
+
+    private void OnGUI()
+    {
+        minutes = Mathf.Floor(Match.currentMatchTime / 60);
+        seconds = Mathf.RoundToInt(Match.currentMatchTime % 60);
+        niceTime = string.Format("{0:0}:{1:00}", minutes, seconds);
+    }
 
     void Update() {
         if (!gameFinished) {
             if (Match.gameFinished) {
-                if (playerScript.CurHealth <= 0) {
+                if (playerScript.CurHealth <= 0) { 
                     victoryPanel.SetActive(true);
                 }
                 else {
@@ -30,7 +41,7 @@ public class UIManager : MonoBehaviour {
 
             healthUI.text = playerScript.CurHealth + "/" + playerScript.maxHealth;
             fuelUI.text = playerScript.Fuel.ToString();
-            timerUI.text = Match.currentMatchTime.ToString();
+            timerUI.text = niceTime;
         }
     }
 }

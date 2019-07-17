@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2572232615553413766}
   - component: {fileID: 2572232615553413765}
   m_Layer: 9
-  m_Name: Cube
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -314,7 +314,7 @@ GameObject:
   - component: {fileID: 2572232615577206456}
   - component: {fileID: 2572232615577206463}
   m_Layer: 9
-  m_Name: Cube (1)
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -615,7 +615,7 @@ GameObject:
   - component: {fileID: 2572232615578795808}
   - component: {fileID: 2572232615578795815}
   m_Layer: 9
-  m_Name: Cube (4)
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -916,7 +916,7 @@ GameObject:
   - component: {fileID: 2572232615650798306}
   - component: {fileID: 2572232615650798305}
   m_Layer: 9
-  m_Name: Cube (15)
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1217,7 +1217,7 @@ GameObject:
   - component: {fileID: 2572232615705734357}
   - component: {fileID: 2572232615705734356}
   m_Layer: 9
-  m_Name: Cube (11)
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1518,7 +1518,7 @@ GameObject:
   - component: {fileID: 2572232615770377304}
   - component: {fileID: 2572232615770377311}
   m_Layer: 9
-  m_Name: Cube (10)
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1819,7 +1819,7 @@ GameObject:
   - component: {fileID: 2572232616030521155}
   - component: {fileID: 2572232616030521154}
   m_Layer: 9
-  m_Name: Cube (2)
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2120,7 +2120,7 @@ GameObject:
   - component: {fileID: 2572232616093086466}
   - component: {fileID: 2572232616093086465}
   m_Layer: 9
-  m_Name: Cube (13)
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2421,7 +2421,7 @@ GameObject:
   - component: {fileID: 2572232616209160153}
   - component: {fileID: 2572232616209160152}
   m_Layer: 9
-  m_Name: Cube (14)
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2722,7 +2722,7 @@ GameObject:
   - component: {fileID: 2572232616364201870}
   - component: {fileID: 2572232616364201869}
   m_Layer: 9
-  m_Name: Cube (8)
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3023,7 +3023,7 @@ GameObject:
   - component: {fileID: 2572232616433677790}
   - component: {fileID: 2572232616433677789}
   m_Layer: 9
-  m_Name: Cube (5)
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3324,7 +3324,7 @@ GameObject:
   - component: {fileID: 2572232616440348681}
   - component: {fileID: 2572232616440348680}
   m_Layer: 9
-  m_Name: Cube (9)
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3625,7 +3625,7 @@ GameObject:
   - component: {fileID: 2572232616491937788}
   - component: {fileID: 2572232616491937763}
   m_Layer: 9
-  m_Name: Cube (22)
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3942,9 +3942,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2572232616508877150}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 40, y: -0.42, z: -109}
-  m_LocalScale: {x: 3.91, y: 0.2, z: 5.7}
+  m_LocalScale: {x: 3.008276, y: 0.2, z: 3.9649775}
   m_Children:
   - {fileID: 2572232615553413771}
   - {fileID: 2572232615577206461}
@@ -4296,7 +4296,7 @@ GameObject:
   - component: {fileID: 2572232616631272388}
   - component: {fileID: 2572232616631272395}
   m_Layer: 9
-  m_Name: Cube (12)
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4597,7 +4597,7 @@ GameObject:
   - component: {fileID: 2572232616700653822}
   - component: {fileID: 2572232616700653821}
   m_Layer: 9
-  m_Name: Cube (18)
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4898,7 +4898,7 @@ GameObject:
   - component: {fileID: 2572232616756997884}
   - component: {fileID: 2572232616756997859}
   m_Layer: 9
-  m_Name: Cube (6)
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5199,7 +5199,7 @@ GameObject:
   - component: {fileID: 2572232616772641214}
   - component: {fileID: 2572232616772641213}
   m_Layer: 9
-  m_Name: Cube (21)
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5500,7 +5500,7 @@ GameObject:
   - component: {fileID: 2572232616839370114}
   - component: {fileID: 2572232616839370113}
   m_Layer: 9
-  m_Name: Cube (19)
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5801,7 +5801,7 @@ GameObject:
   - component: {fileID: 2572232616871978636}
   - component: {fileID: 2572232616871978739}
   m_Layer: 9
-  m_Name: Cube (7)
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6102,7 +6102,7 @@ GameObject:
   - component: {fileID: 2572232617102922221}
   - component: {fileID: 2572232617102922220}
   m_Layer: 9
-  m_Name: Cube (23)
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6403,7 +6403,7 @@ GameObject:
   - component: {fileID: 2572232617174703546}
   - component: {fileID: 2572232617174703545}
   m_Layer: 9
-  m_Name: Cube (3)
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6704,7 +6704,7 @@ GameObject:
   - component: {fileID: 2572232617358202729}
   - component: {fileID: 2572232617358202728}
   m_Layer: 9
-  m_Name: Cube (20)
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7005,7 +7005,7 @@ GameObject:
   - component: {fileID: 2572232617449051053}
   - component: {fileID: 2572232617449051052}
   m_Layer: 9
-  m_Name: Cube (17)
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7306,7 +7306,7 @@ GameObject:
   - component: {fileID: 2572232617453515627}
   - component: {fileID: 2572232617453515626}
   m_Layer: 9
-  m_Name: Cube (16)
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
