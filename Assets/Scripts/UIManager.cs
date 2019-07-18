@@ -37,6 +37,8 @@ public class UIManager : MonoBehaviour {
                     defeatPanel.SetActive(true);
                 }
 
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
                 PlayerPrefs.SetInt("Score", Convert.ToInt16(niceTime.Replace(":", "")));
                 gameFinished = true;
             }
@@ -45,5 +47,5 @@ public class UIManager : MonoBehaviour {
             fuelUI.text = playerScript.Fuel.ToString();
             timerUI.text = niceTime;
         }
-    }
+    }    
 }

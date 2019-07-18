@@ -10,9 +10,7 @@ public class Leaderboard : MonoBehaviour {
     [SerializeField] GameObject newEntryTemplate; //template that can have name inputted in (i guess inputted doesn't exist but whatevs)
 
     int leaderboardSize = 10;
-
     List<LeaderboardEntry> entries;
-    int score;
 
     void Start() {
         ShowLeaderboard();       
