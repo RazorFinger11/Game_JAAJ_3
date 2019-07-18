@@ -600,6 +600,8 @@ MonoBehaviour:
   healthUI: {fileID: 1358003140743488129}
   fuelUI: {fileID: 1358003139491718301}
   timerUI: {fileID: 0}
+  victoryPanel: {fileID: 0}
+  defeatPanel: {fileID: 0}
 --- !u!1 &1859279164795882879
 GameObject:
   m_ObjectHideFlags: 0
