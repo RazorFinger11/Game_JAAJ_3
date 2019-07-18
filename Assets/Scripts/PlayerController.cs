@@ -12,6 +12,10 @@ public class PlayerController : MonoBehaviour {
 
     // Movement
     public float moveSpeed;
+
+    float defaultMoveSpeed;
+    public float DefaultMSpeed { get => defaultMoveSpeed; }
+
     public float jumpHeight;
     public float gravity;
     float verticalVelocity;
@@ -32,6 +36,7 @@ public class PlayerController : MonoBehaviour {
     void Start() {
         rb = GetComponent<Rigidbody>();
         curHealth = maxHealth;
+        defaultMoveSpeed = moveSpeed;
     }
 
     void Update() {
