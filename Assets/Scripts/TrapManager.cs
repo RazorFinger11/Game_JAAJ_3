@@ -15,6 +15,9 @@ public class TrapManager : MonoBehaviour
 
     // Cooldowns
     public float trapCooldown;
+    public bool slowdown;
+    public float slowdownAmount;
+    public float slowdownTime;
 
     float curTime;
     public float CurTime { get => curTime; set => curTime = value; }
@@ -29,6 +32,10 @@ public class TrapManager : MonoBehaviour
     public int maxFuel;
     int curFuel;
     public int CurFuel { get => curFuel; set => curFuel = value; }
+    public ParticleSystem fireParticles;
+
+    //One Use
+    public ParticleSystem explosionParticle;
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +65,11 @@ public class TrapManager : MonoBehaviour
             // Add the fuel in the machine
             if (curFuel <= maxFuel)
             {
+
+                var main = fireParticles.main;
+                main.startSpeed = -DamagePerFuel * CurFuel;
+                main.startSize = (DamagePerFuel * CurFuel)/15; 
+
                 // if you have more than the capacity, only add the capacity
                 if (player.GetComponent<PlayerController>().Fuel > (maxFuel - curFuel))
                 {
@@ -88,6 +100,8 @@ public class TrapManager : MonoBehaviour
             // If he presses the button inside the playing area
             if (Input.GetButtonDown("Fire1"))
             {
+                fireParticles.gameObject.SetActive(true);
+                fireParticles.Play();
                 Activate();
             }
         }
@@ -98,7 +112,13 @@ public class TrapManager : MonoBehaviour
             Debug.Log("does this count");
             if (Input.GetButtonDown("Fire1"))
             {
+                explosionParticle.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 3.44f, this.transform.position.z);
+                explosionParticle.transform.parent = null;
+                explosionParticle.transform.rotation = new Quaternion(0, 0, 0, 0);
+                explosionParticle.gameObject.SetActive(true);
+                explosionParticle.Play();
                 Activate();
+                Destroy(explosionParticle.gameObject, 4f);
             }
         }
     }
@@ -112,6 +132,11 @@ public class TrapManager : MonoBehaviour
         {
             readyToActivate = false;
             StartCoroutine(CooldownSequence());
+            if(slowdown)
+            {
+                player.GetComponent<PlayerController>().moveSpeed -= slowdownAmount;
+                StartCoroutine(SlowdownCountdown());
+            }
         }
         if(type == TrapType.Fueled)
         {
@@ -120,8 +145,17 @@ public class TrapManager : MonoBehaviour
         }
         if(type == TrapType.OneUse)
         {
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
+            this.gameObject.GetComponent<Renderer>().enabled = false;
+            this.gameObject.GetComponent<Collider>().enabled = false;
+            Destroy(this.gameObject, 4.1f);
         }
+    }
+
+    IEnumerator SlowdownCountdown()
+    {
+        yield return new WaitForSeconds(slowdownTime);
+        player.GetComponent<PlayerController>().moveSpeed = player.GetComponent<PlayerController>().DefaultMSpeed;
     }
 
     // wait for Cooldown
