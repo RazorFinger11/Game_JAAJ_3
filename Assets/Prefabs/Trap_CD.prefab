@@ -114,6 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trapScript: {fileID: 2572232616508877140}
   textbox: {fileID: 2136920378}
+  objectScale: 1
 --- !u!1 &2136920376
 GameObject:
   m_ObjectHideFlags: 0
@@ -4524,7 +4525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   trapDamage: 5
-  trapCooldown: 10
+  trapCooldown: 15
   interval: 10
   DamagePerFuel: 0
   maxFuel: 0
