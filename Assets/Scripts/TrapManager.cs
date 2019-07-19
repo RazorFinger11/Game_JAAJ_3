@@ -10,6 +10,7 @@ public class TrapManager : MonoBehaviour
     // General
     public TrapType type;
     public int trapDamage;
+    public AudioClip trapSound;
     Animator anim;
     GameObject player;
 
@@ -126,6 +127,7 @@ public class TrapManager : MonoBehaviour
     void Activate()
     {
         anim.SetTrigger("Activate");
+        AudioManager.instance.PlayClipAtPoint(trapSound, this.gameObject);
         player.GetComponent<PlayerController>().SendMessage("Damage", trapDamage);
 
         if(type == TrapType.Cooldown)

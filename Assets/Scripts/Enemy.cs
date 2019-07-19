@@ -18,10 +18,13 @@ public class Enemy : MonoBehaviour {
     [Range(0, 10)] [SerializeField] float maxAttackTime = 10f;
 
     [SerializeField] Bullet bulletPrefab;
-    [SerializeField] GameObject firePoint;
+    [SerializeField] GameObject firePoint;    
     float timeToFire;
     [Range(0, 3)] [SerializeField] float minFireRate = .5f;
     [Range(0, 3)] [SerializeField] float maxFireRate = 1;
+
+    [SerializeField] AudioClip teleportSound;
+    [SerializeField] AudioClip bulletSound;
 
     Animator anim;
     float attackDuration;
@@ -61,11 +64,13 @@ public class Enemy : MonoBehaviour {
         //teleport after attack time(random value between min and max attack time)
         if (viablePoints.Length > 0) {
             this.transform.position = viablePoints[Random.Range(0, viablePoints.Length)].position;
+            AudioManager.instance.PlayClipAtPoint(teleportSound, this.gameObject);
         }
     }
 
     public void Shoot() {
         Bullet bullet = Instantiate(bulletPrefab, firePoint.transform.position, firePoint.transform.rotation);
+        AudioManager.instance.PlayClipAtPoint(bulletSound, this.gameObject);
     }
 
     Transform[] CheckViablePoints() {

@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour {
     float verticalVelocity;
     Vector3 movement;
     public Animator anim;
+    AudioSource footstepSource;
 
     // Health
     public float maxHealth;
@@ -41,6 +42,7 @@ public class PlayerController : MonoBehaviour {
 
     void Start() {
         rb = GetComponent<Rigidbody>();
+        footstepSource = GetComponent<AudioSource>();
         curHealth = maxHealth;
         defaultMoveSpeed = moveSpeed;
     }
@@ -48,6 +50,10 @@ public class PlayerController : MonoBehaviour {
     void Update() {
         horizontalInput = GetHorizontalInput();
         verticalInput = GetVerticalInput();
+
+        //make footstep sound
+        footstepSource.volume = isGrounded() ? Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput))/2 : 0;
+
         Jump();
 
         if (fuelPickupIndicator.GetComponent<TextMeshProUGUI>().color.a <= 0)
