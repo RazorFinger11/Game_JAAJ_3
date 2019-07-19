@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System;
 
 public class UIManager : MonoBehaviour {
     public PlayerController playerScript;
@@ -20,7 +19,7 @@ public class UIManager : MonoBehaviour {
 
     bool gameFinished;
 
-    void OnGUI()
+    private void OnGUI()
     {
         minutes = Mathf.Floor(Match.currentMatchTime / 60);
         seconds = Mathf.RoundToInt(Match.currentMatchTime % 60);
@@ -37,9 +36,6 @@ public class UIManager : MonoBehaviour {
                     defeatPanel.SetActive(true);
                 }
 
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-                PlayerPrefs.SetInt("Score", Convert.ToInt16(niceTime.Replace(":", "")));
                 gameFinished = true;
             }
 
@@ -47,5 +43,5 @@ public class UIManager : MonoBehaviour {
             fuelUI.text = playerScript.Fuel.ToString();
             timerUI.text = niceTime;
         }
-    }    
+    }
 }
