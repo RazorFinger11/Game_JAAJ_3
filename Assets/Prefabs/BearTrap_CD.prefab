@@ -184,15 +184,16 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2bff21f960050d641ac0e2ee06742dca, type: 2}
+  m_sharedMaterial: {fileID: 21276802973610868, guid: 2bff21f960050d641ac0e2ee06742dca,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278251263
+  m_fontColor: {r: 1, g: 0.9371229, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -333,6 +334,7 @@ MonoBehaviour:
   interval: 10
   DamagePerFuel: 0
   maxFuel: 0
+  fireParticles: {fileID: 0}
   explosionParticle: {fileID: 0}
 --- !u!65 &1592739779
 BoxCollider:
@@ -345,8 +347,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.3375816, y: 0.45617288, z: 4.5498734}
-  m_Center: {x: -0.034000397, y: 0.32250208, z: 0.018352509}
+  m_Size: {x: 5.4280915, y: 1.6568124, z: 5.727391}
+  m_Center: {x: -0.259025, y: 0.9228219, z: 0.072747774}
 --- !u!95 &1522873386860497006
 Animator:
   serializedVersion: 3

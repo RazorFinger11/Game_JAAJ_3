@@ -184,15 +184,16 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2bff21f960050d641ac0e2ee06742dca, type: 2}
+  m_sharedMaterial: {fileID: 21276802973610868, guid: 2bff21f960050d641ac0e2ee06742dca,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278713599
+  m_fontColor: {r: 1, g: 0.99176276, b: 0.031372547, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -327,9 +328,14 @@ MonoBehaviour:
   type: 0
   trapDamage: 5
   trapCooldown: 15
+  slowdown: 0
+  slowdownAmount: 0
+  slowdownTime: 0
   interval: 10
   DamagePerFuel: 0
   maxFuel: 0
+  fireParticles: {fileID: 0}
+  explosionParticle: {fileID: 0}
 --- !u!65 &8356141503533680869
 BoxCollider:
   m_ObjectHideFlags: 0

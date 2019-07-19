@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour {
     // Input
@@ -26,12 +27,15 @@ public class PlayerController : MonoBehaviour {
     public float maxHealth;
     float curHealth;
     public float CurHealth { get => curHealth; set => curHealth = value; }
+    public GameObject healthIndicator;
+    public GameObject healthPos;
 
     // Fuel
     int fuel;
     public int Fuel { get => fuel; set => fuel = value; }
     public int maxFuel = 3;
     public FuelSpawner fuelSpawnerScript;
+    public GameObject fuelPickupIndicator;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
@@ -43,6 +47,16 @@ public class PlayerController : MonoBehaviour {
         horizontalInput = GetHorizontalInput();
         verticalInput = GetVerticalInput();
         Jump();
+
+        if (fuelPickupIndicator.GetComponent<TextMeshProUGUI>().color.a <= 0)
+        {
+            fuelPickupIndicator.SetActive(false);
+
+            fuelPickupIndicator.GetComponent<TextMeshProUGUI>().color = new Vector4(fuelPickupIndicator.GetComponent<TextMeshProUGUI>().color.r, fuelPickupIndicator.GetComponent<TextMeshProUGUI>().color.g,
+                                                                                    fuelPickupIndicator.GetComponent<TextMeshProUGUI>().color.b, 10);
+
+        }
+
     }
 
     private void FixedUpdate()
@@ -55,7 +69,17 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-        public void Damage(int value) {
+    public void Damage(int value) {
+        var indicator = Instantiate(healthIndicator, healthPos.transform);
+        indicator.GetComponent<TextMeshPro>().text = value.ToString();
+
+        if(value < 0)
+        {
+            indicator.GetComponent<TextMeshPro>().color = Color.green;
+        }
+
+        Destroy(indicator, 1f);
+
         curHealth -= value;
         
         if (curHealth > maxHealth) {
@@ -71,6 +95,8 @@ public class PlayerController : MonoBehaviour {
     {
         if(other.gameObject.tag == "Fuel" && fuel < maxFuel)
         {
+            fuelPickupIndicator.SetActive(true);
+
             fuelSpawnerScript.transformVectors.Add(this.transform.position);
             fuelSpawnerScript.CurFuels--;
             fuelSpawnerScript.CurTime = 0;
