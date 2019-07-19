@@ -24,8 +24,7 @@ public class Enemy : MonoBehaviour {
     [Range(0, 3)] [SerializeField] float maxFireRate = 1;
 
     Animator anim;
-
-    bool attacking;
+    float attackDuration;
     #endregion
 
     void Start() {
@@ -36,23 +35,17 @@ public class Enemy : MonoBehaviour {
         anim = GetComponent<Animator>();
     }
 
-    void Update() {        
-        if (!attacking) {
-            //check if point is spawnable
-            Transform[] viablePoints = CheckViablePoints();
+    void Update() {
+        //look at player
+        this.transform.LookAt(target.transform);
+        firePoint.transform.LookAt(target.transform);
 
-            //teleport after attack time(random value between min and max attack time)
-            if (viablePoints.Length > 0) {
-                this.transform.position = viablePoints[Random.Range(0, viablePoints.Length)].position;
-                attacking = true;
-                StartCoroutine(WaitForAttack(Random.Range(minAttackTime, maxAttackTime)));
-            }
+        if (Time.time > attackDuration) {
+            //begin teleport anim (that will trigger teleport event)
+            anim.SetTrigger("Teleport");
+            attackDuration = (Time.time + anim.GetCurrentAnimatorStateInfo(0).length) + Random.Range(minAttackTime, maxAttackTime);
         }
         else {
-            //look at player
-            this.transform.LookAt(target.transform);
-            firePoint.transform.LookAt(target.transform);
-
             //begin shoot anim (that will trigger shoot event)
             if (Time.time > timeToFire) {
                 anim.SetTrigger("Shoot");
@@ -61,24 +54,29 @@ public class Enemy : MonoBehaviour {
         }
     }
 
-    Transform[] CheckViablePoints() {
-        var viablePoints = new HashSet<Transform>();
+    public void Teleport() {
+        //check if point is spawnable
+        Transform[] viablePoints = CheckViablePoints();
 
-        foreach (Transform point in points) {
-            if (!Physics.CheckSphere(point.position, .5f, checkSpawnMask)) {
-                viablePoints.Add(point);
-            }
+        //teleport after attack time(random value between min and max attack time)
+        if (viablePoints.Length > 0) {
+            this.transform.position = viablePoints[Random.Range(0, viablePoints.Length)].position;
         }
-
-        return viablePoints.ToArray();
     }
 
     public void Shoot() {
         Bullet bullet = Instantiate(bulletPrefab, firePoint.transform.position, firePoint.transform.rotation);
     }
 
-    IEnumerator WaitForAttack(float time) {
-        yield return new WaitForSeconds(time);
-        attacking = false;
+    Transform[] CheckViablePoints() {
+        var viablePoints = new HashSet<Transform>();
+
+        foreach (Transform point in points) {
+            if (!Physics.CheckSphere(point.position, .5f, checkSpawnMask) && point.position != transform.position) {
+                viablePoints.Add(point);
+            }
+        }
+
+        return viablePoints.ToArray();
     }
 }

@@ -9,7 +9,7 @@ public class Leaderboard : MonoBehaviour {
     [SerializeField] GameObject entryTemplate; //template for fixed highscores
     [SerializeField] GameObject newEntryTemplate; //template that can have name inputted in (i guess inputted doesn't exist but whatevs)
 
-    int leaderboardSize = 10;
+    int maxLeaderboardSize = 10;
     List<LeaderboardEntry> entries;
 
     void Start() {
@@ -26,6 +26,9 @@ public class Leaderboard : MonoBehaviour {
 
         //carregar dados anteriores de highscores
         entries = SaveSystem.LoadLeaderboard();
+        if (entries == null) {
+            entries = new List<LeaderboardEntry>();
+        }
 
         //pegar último score feito pelo player apenas se ele jogou
         LeaderboardEntry playerEntry = new LeaderboardEntry("", PlayerPrefs.GetInt("Score", -1));
@@ -44,7 +47,7 @@ public class Leaderboard : MonoBehaviour {
                 }
             }
         }
-        entries = entries.GetRange(0, leaderboardSize);
+        entries = entries.GetRange(0, entries.Count > maxLeaderboardSize ? maxLeaderboardSize : entries.Count);
 
         float templateHeight = 25f;
         for (int i = 0; i < entries.Count; i++) {

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.14837483, g: 0.07714937, b: 0.25321898, a: 1}
+  m_IndirectSpecularColor: {r: 0.14844266, g: 0.07719626, b: 0.25324246, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -20033,7 +20033,7 @@ PrefabInstance:
     - target: {fileID: 112574460091433922, guid: 5c9fa76cae8e924489d5666daa231706,
         type: 3}
       propertyPath: checkSpawnMask.m_Bits
-      value: 1025
+      value: 513
       objectReference: {fileID: 0}
     - target: {fileID: 112574460091433922, guid: 5c9fa76cae8e924489d5666daa231706,
         type: 3}
@@ -22365,7 +22365,7 @@ PrefabInstance:
     - target: {fileID: 112574460091433922, guid: 5c9fa76cae8e924489d5666daa231706,
         type: 3}
       propertyPath: checkSpawnMask.m_Bits
-      value: 1025
+      value: 513
       objectReference: {fileID: 0}
     - target: {fileID: 112574460091433922, guid: 5c9fa76cae8e924489d5666daa231706,
         type: 3}
@@ -38042,7 +38042,7 @@ PrefabInstance:
     - target: {fileID: 112574460091433922, guid: 5c9fa76cae8e924489d5666daa231706,
         type: 3}
       propertyPath: checkSpawnMask.m_Bits
-      value: 1025
+      value: 513
       objectReference: {fileID: 0}
     - target: {fileID: 112574460091433922, guid: 5c9fa76cae8e924489d5666daa231706,
         type: 3}
@@ -43666,7 +43666,7 @@ PrefabInstance:
     - target: {fileID: 112574460091433922, guid: 5c9fa76cae8e924489d5666daa231706,
         type: 3}
       propertyPath: checkSpawnMask.m_Bits
-      value: 1025
+      value: 513
       objectReference: {fileID: 0}
     - target: {fileID: 112574460091433922, guid: 5c9fa76cae8e924489d5666daa231706,
         type: 3}
@@ -44169,7 +44169,7 @@ PrefabInstance:
     - target: {fileID: 112574460091433922, guid: 5c9fa76cae8e924489d5666daa231706,
         type: 3}
       propertyPath: checkSpawnMask.m_Bits
-      value: 1025
+      value: 513
       objectReference: {fileID: 0}
     - target: {fileID: 112574460091433922, guid: 5c9fa76cae8e924489d5666daa231706,
         type: 3}
