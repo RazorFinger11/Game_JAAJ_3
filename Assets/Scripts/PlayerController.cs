@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
     // Input
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour {
     public float CurHealth { get => curHealth; set => curHealth = value; }
     public GameObject healthIndicator;
     public GameObject healthPos;
+    public GameObject healthScreenBlur;
 
     // Fuel
     int fuel;
@@ -57,6 +59,15 @@ public class PlayerController : MonoBehaviour {
 
         }
 
+        if (healthScreenBlur.GetComponent<Image>().color.a <= 0)
+        {
+            healthScreenBlur.SetActive(false);
+
+            healthScreenBlur.GetComponent<Image>().color = new Vector4(healthScreenBlur.GetComponent<Image>().color.r, healthScreenBlur.GetComponent<Image>().color.g,
+                                                                                    healthScreenBlur.GetComponent<Image>().color.b, 10);
+
+        }
+
     }
 
     private void FixedUpdate()
@@ -73,9 +84,16 @@ public class PlayerController : MonoBehaviour {
         var indicator = Instantiate(healthIndicator, healthPos.transform);
         indicator.GetComponent<TextMeshPro>().text = value.ToString();
 
+        healthScreenBlur.gameObject.SetActive(true);
+
         if(value < 0)
         {
             indicator.GetComponent<TextMeshPro>().color = Color.green;
+            healthScreenBlur.GetComponent<Image>().color = Color.green;
+        }
+        else
+        {
+            healthScreenBlur.GetComponent<Image>().color = Color.red;
         }
 
         Destroy(indicator, 1f);
