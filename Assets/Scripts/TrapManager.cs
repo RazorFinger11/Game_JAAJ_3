@@ -83,6 +83,8 @@ public class TrapManager : MonoBehaviour
                     curFuel += player.GetComponent<PlayerController>().Fuel;
                     player.GetComponent<PlayerController>().Fuel = 0;
                 }
+
+                UIManager.instance.UpdateFuel(player.GetComponent<PlayerController>().Fuel);
             }
         }
     }

@@ -2,12 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
+    public static UIManager instance;
+
     public PlayerController playerScript;
 
+    [Space]
+
     public TextMeshProUGUI healthUI;
+    public Image healthBar, healthBorder;
+    public Sprite highHealth, lowHealth;
+    public Image crossHealth;
+    public Sprite highHealthCross, lowHealthCross, deadCross;
+
+    [Space]
+    public Image[] fuelBars; //from lowest to highest
     public TextMeshProUGUI fuelUI;
+
     public TextMeshProUGUI timerUI;
 
     [SerializeField] GameObject victoryPanel;
@@ -18,6 +31,15 @@ public class UIManager : MonoBehaviour {
     string niceTime;
 
     bool gameFinished;
+
+    void Awake() {
+        if (instance != null && instance != this) {
+            Destroy(this.gameObject);
+        }
+        else {
+            instance = this;
+        }
+    }
 
     private void OnGUI()
     {
@@ -38,10 +60,40 @@ public class UIManager : MonoBehaviour {
 
                 gameFinished = true;
             }
-
-            healthUI.text = playerScript.CurHealth + "/" + playerScript.maxHealth;
-            fuelUI.text = playerScript.Fuel.ToString();
             timerUI.text = niceTime;
+        }
+    }
+
+    public void UpdateHealth(float health) {
+        float borderAmount = health > 0 ? 0.01f : 0f;
+
+        healthBar.fillAmount = health / 100;
+        healthBorder.fillAmount = (health / 100) + borderAmount;
+        healthUI.text = playerScript.CurHealth.ToString();
+
+        if (health > 40) {
+            healthBar.sprite = highHealth;
+            crossHealth.sprite = highHealthCross;
+        }
+        else if (health > 0) {
+            healthBar.sprite = lowHealth;
+            crossHealth.sprite = lowHealthCross;
+        }     
+        else {
+            crossHealth.sprite = deadCross;
+            healthUI.text = "Morto";
+        }
+    }
+
+    public void UpdateFuel(int fuel) {
+        //turn off all fuels
+        for (int i = 0; i < fuelBars.Length; i++) {
+            fuelBars[i].gameObject.SetActive(false);
+        }
+
+        //turn on correspondent amount
+        for (int i = 0; i < fuel; i++) {
+            fuelBars[i].gameObject.SetActive(true);
         }
     }
 }

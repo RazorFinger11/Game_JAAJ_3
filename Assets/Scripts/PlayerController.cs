@@ -120,6 +120,9 @@ public class PlayerController : MonoBehaviour {
         if (curHealth == 0) {
             anim.SetTrigger("DEATH");
         }
+
+        //update ui
+        UIManager.instance.UpdateHealth(curHealth);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -131,8 +134,9 @@ public class PlayerController : MonoBehaviour {
             fuelSpawnerScript.transformVectors.Add(this.transform.position);
             fuelSpawnerScript.CurFuels--;
             fuelSpawnerScript.CurTime = 0;
-            Destroy(other.gameObject);
+            Destroy(other.gameObject);            
             fuel++;
+            UIManager.instance.UpdateFuel(fuel);
         }
     }
 
