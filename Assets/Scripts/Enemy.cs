@@ -28,6 +28,8 @@ public class Enemy : MonoBehaviour {
 
     Animator anim;
     float attackDuration;
+
+    public GameObject teleportParticle;
     #endregion
 
     void Start() {
@@ -63,8 +65,10 @@ public class Enemy : MonoBehaviour {
 
         //teleport after attack time(random value between min and max attack time)
         if (viablePoints.Length > 0) {
+            GameObject p = Instantiate(teleportParticle, this.transform.position + new Vector3(0, 1, 0), this.transform.rotation);
             this.transform.position = viablePoints[Random.Range(0, viablePoints.Length)].position;
             AudioManager.instance.PlayClipAtPoint(teleportSound, this.gameObject);
+            Destroy(p, 1f);
         }
     }
 

@@ -1,63 +1,33 @@
 fileFormatVersion: 2
-guid: 5384a76d535fecb4d94f09dcb3f0af5a
+guid: 854f9abe8bfe08541ac5f779c951f4e5
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Cube
-    100002: Cylinder
-    100004: Cylinder_001
-    100006: Cylinder_002
-    100008: //RootNode
-    100010: Tree_LOD0
-    100012: Tree_LOD1
-    100014: Tree_LOD2
-    400000: Cube
-    400002: Cylinder
-    400004: Cylinder_001
-    400006: Cylinder_002
-    400008: //RootNode
-    400010: Tree_LOD0
-    400012: Tree_LOD1
-    400014: Tree_LOD2
-    2100000: TreeLeaves
-    2100002: Tree_Trunk
-    2300000: Cube
-    2300002: Cylinder
-    2300004: Cylinder_001
-    2300006: Cylinder_002
-    2300008: Tree_LOD0
-    2300010: Tree_LOD1
-    2300012: Tree_LOD2
-    3300000: Cube
-    3300002: Cylinder
-    3300004: Cylinder_001
-    3300006: Cylinder_002
-    3300008: Tree_LOD0
-    3300010: Tree_LOD1
-    3300012: Tree_LOD2
-    4300000: Cylinder_002
-    4300002: Cylinder_001
-    4300004: Cylinder
-    4300006: Cube
-    4300008: Tree_LOD2
-    4300010: Tree_LOD1
-    4300012: Tree_LOD0
-    7400000: Default Take
-    9500000: //RootNode
+    100000: //RootNode
+    100002: Tree_LOD0
+    100004: Tree_LOD1
+    100006: Tree_LOD2
+    400000: //RootNode
+    400002: Tree_LOD0
+    400004: Tree_LOD1
+    400006: Tree_LOD2
+    2100000: Tree_Trunk
+    2100002: TreeLeaves
+    2300000: //RootNode
+    2300002: Tree_LOD0
+    2300004: Tree_LOD1
+    2300006: Tree_LOD2
+    3300000: //RootNode
+    3300002: Tree_LOD0
+    3300004: Tree_LOD1
+    3300006: Tree_LOD2
+    4300000: Tree_LOD0
+    4300002: Tree_LOD2
+    4300004: Tree_LOD1
     20500000: //RootNode
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: TreeLeaves
-    second: {fileID: 2100000, guid: 7ff89bba1a0fb7044a01f472e6913604, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Tree_Trunk
-    second: {fileID: 2100000, guid: dbc94639557989546aee430dac9b8310, type: 2}
+  externalObjects: {}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -111,7 +81,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -135,7 +105,7 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 0
