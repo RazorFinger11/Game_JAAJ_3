@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5dddf1d81e98af24f95e9881ef0e78e5
+guid: deaebf865c17f434abe319762acf26c3
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -51,21 +51,21 @@ ModelImporter:
     400044: People_1_002
     2100000: Metal
     2100002: Sign
-    2100004: Thumb
-    2100006: Material_006
-    2100008: Clothes_Pink
-    2100010: Material_001
-    2100012: Skin_White
-    2100014: Clothes_Green
-    2100016: Clothes_Orange
-    2100018: Clothes_Blue
-    2100020: Skin_Black
-    2100022: Clothes_Black
-    2100024: Arena
-    2100026: Sign_Image_1
-    2100028: Sign_Image_3
-    2100030: BigSign_Image
-    2100032: Sign_Image_2
+    2100004: Sign_Image_1
+    2100006: Thumb
+    2100008: Sign_Image_3
+    2100010: BigSign_Image
+    2100012: Sign_Image_2
+    2100014: Material_006
+    2100016: Material_001
+    2100018: Skin_White
+    2100020: Clothes_Pink
+    2100022: Clothes_Green
+    2100024: Clothes_Black
+    2100026: Clothes_Orange
+    2100028: Clothes_Blue
+    2100030: Skin_Black
+    2100032: Arena
     2300000: Cube
     2300002: Cube_001
     2300004: Cube_002
@@ -125,7 +125,92 @@ ModelImporter:
     4300036: Cylinder
     7400000: Default Take
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Arena
+    second: {fileID: 2100000, guid: 8802062b52e75d14fa0e9262210814e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BigSign_Image
+    second: {fileID: 2100000, guid: f290782c749c4364a908ec09cc5e5fd7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Clothes_Black
+    second: {fileID: 2100000, guid: 82fd674512ec79e428c2cf36acb2875e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Clothes_Blue
+    second: {fileID: 2100000, guid: ea6cd2dd094571545aae8dddb3e2ca0e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Clothes_Green
+    second: {fileID: 2100000, guid: f8b1e35c26273e9479ff57f23abbdb8b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Clothes_Orange
+    second: {fileID: 2100000, guid: 07daebd9d3fcddc47969686e531b6b68, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Clothes_Pink
+    second: {fileID: 2100000, guid: 45e7562b9a7f909468b1544e98fbe6cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_001
+    second: {fileID: 2100000, guid: 99424216a55f89c49b371d54dec94028, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_006
+    second: {fileID: 2100000, guid: fe4ef1a83e25d7749b5d1c61d4007ef2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal
+    second: {fileID: 2100000, guid: d7bb414e830baad4fb1e5e561085f643, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sign
+    second: {fileID: 2100000, guid: 84060e499707fbd42a32edc235f26324, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sign_Image_1
+    second: {fileID: 2100000, guid: 12c0e1021528ef84e963a52ba5256d89, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sign_Image_2
+    second: {fileID: 2100000, guid: 1873879bffad63549ba0829a8d02116c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sign_Image_3
+    second: {fileID: 2100000, guid: a4aae68c80ee4194ebf65a4892c6abaf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skin_Black
+    second: {fileID: 2100000, guid: 3e23fa2eff00f734ba23f77d71550713, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skin_White
+    second: {fileID: 2100000, guid: 339a0a8626843a14b9599a6c9061e40d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Thumb
+    second: {fileID: 2100000, guid: c0e59b3d7283a1d46a24823fdcd36922, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -162,8 +247,8 @@ ModelImporter:
     useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -187,7 +272,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
@@ -202,10 +287,10 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

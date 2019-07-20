@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5dddf1d81e98af24f95e9881ef0e78e5
+guid: 6f2d52142501f9b41bed8bf901c61a00
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -53,19 +53,15 @@ ModelImporter:
     2100002: Sign
     2100004: Thumb
     2100006: Material_006
-    2100008: Clothes_Pink
-    2100010: Material_001
-    2100012: Skin_White
+    2100008: Material_001
+    2100010: Skin_White
+    2100012: Clothes_Pink
     2100014: Clothes_Green
-    2100016: Clothes_Orange
-    2100018: Clothes_Blue
-    2100020: Skin_Black
-    2100022: Clothes_Black
+    2100016: Clothes_Black
+    2100018: Clothes_Orange
+    2100020: Clothes_Blue
+    2100022: Skin_Black
     2100024: Arena
-    2100026: Sign_Image_1
-    2100028: Sign_Image_3
-    2100030: BigSign_Image
-    2100032: Sign_Image_2
     2300000: Cube
     2300002: Cube_001
     2300004: Cube_002
