@@ -7031,10 +7031,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 908625442, guid: 7420c8447a87b314d911cb18cf332738, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 3624098508065894935}
     - target: {fileID: 450407914, guid: 7420c8447a87b314d911cb18cf332738, type: 3}
       propertyPath: m_havePropertiesChanged
       value: 1
@@ -7077,6 +7073,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: -0.094847694
       objectReference: {fileID: 0}
+    - target: {fileID: 908625442, guid: 7420c8447a87b314d911cb18cf332738, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 3624098508065894935}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7420c8447a87b314d911cb18cf332738, type: 3}
 --- !u!4 &321769548 stripped
@@ -8100,6 +8100,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7810296031526649988, guid: 5dab1404252003442ae79474f3fe336f,
+        type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810296031526649988, guid: 5dab1404252003442ae79474f3fe336f,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7972775367255905036, guid: 5dab1404252003442ae79474f3fe336f,
         type: 3}
       propertyPath: m_IsActive
@@ -8140,16 +8150,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 1edb83538b5d69d409cfb514e7697b45, type: 2}
-    - target: {fileID: 7810296031526649988, guid: 5dab1404252003442ae79474f3fe336f,
-        type: 3}
-      propertyPath: EmissionModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7810296031526649988, guid: 5dab1404252003442ae79474f3fe336f,
-        type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5dab1404252003442ae79474f3fe336f, type: 3}
 --- !u!4 &376630769 stripped
@@ -9897,6 +9897,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1371102037326677644, guid: a9bca7981a1600441a918c5cb5fb85db,
     type: 3}
   m_PrefabInstance: {fileID: 1813717603}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &458550048 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3433823782627822275, guid: 19d4b3f1b76ef7042973c8dc3ca190ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 3624098508065894934}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &460322786
 GameObject:
@@ -14662,16 +14668,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6350454597010653467, guid: 7b8b291f8ece45348814745bb8fb10f3,
-        type: 3}
-      propertyPath: mainCamera
-      value: 
-      objectReference: {fileID: 3624098508065894935}
     - target: {fileID: 7848642772736589799, guid: 7b8b291f8ece45348814745bb8fb10f3,
         type: 3}
       propertyPath: m_Name
       value: GM
       objectReference: {fileID: 0}
+    - target: {fileID: 6350454597010653467, guid: 7b8b291f8ece45348814745bb8fb10f3,
+        type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 3624098508065894935}
     - target: {fileID: 7848642772736589793, guid: 7b8b291f8ece45348814745bb8fb10f3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -43935,12 +43941,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 374824438}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &2042226758 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7670609076891244808, guid: 19d4b3f1b76ef7042973c8dc3ca190ec,
-    type: 3}
-  m_PrefabInstance: {fileID: 3624098508065894934}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2050260053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46592,14 +46592,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7972775367255905036, guid: 5dab1404252003442ae79474f3fe336f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7810296031526649988, guid: 5dab1404252003442ae79474f3fe336f,
         type: 3}
       propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7972775367255905036, guid: 5dab1404252003442ae79474f3fe336f,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -46877,7 +46877,7 @@ PrefabInstance:
         type: 3}
       propertyPath: anim
       value: 
-      objectReference: {fileID: 2042226758}
+      objectReference: {fileID: 458550048}
     - target: {fileID: 3624098508274271883, guid: 19d4b3f1b76ef7042973c8dc3ca190ec,
         type: 3}
       propertyPath: fuelSpawnerScript
@@ -46914,10 +46914,25 @@ PrefabInstance:
       propertyPath: healthScreenBlur
       value: 
       objectReference: {fileID: 353832430}
-    - target: {fileID: 3624098508188162136, guid: 19d4b3f1b76ef7042973c8dc3ca190ec,
+    - target: {fileID: 3624098508274271883, guid: 19d4b3f1b76ef7042973c8dc3ca190ec,
         type: 3}
-      propertyPath: m_TagString
-      value: playerAttack
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624098508188162118, guid: 19d4b3f1b76ef7042973c8dc3ca190ec,
+        type: 3}
+      propertyPath: field of view
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624098508188162118, guid: 19d4b3f1b76ef7042973c8dc3ca190ec,
+        type: 3}
+      propertyPath: far clip plane
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624098508188162118, guid: 19d4b3f1b76ef7042973c8dc3ca190ec,
+        type: 3}
+      propertyPath: m_ForceIntoRT
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7670609076881730220, guid: 19d4b3f1b76ef7042973c8dc3ca190ec,
         type: 3}
@@ -47014,21 +47029,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3624098508188162118, guid: 19d4b3f1b76ef7042973c8dc3ca190ec,
-        type: 3}
-      propertyPath: field of view
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3624098508188162118, guid: 19d4b3f1b76ef7042973c8dc3ca190ec,
-        type: 3}
-      propertyPath: far clip plane
-      value: 2000
-      objectReference: {fileID: 0}
-    - target: {fileID: 3624098508188162118, guid: 19d4b3f1b76ef7042973c8dc3ca190ec,
-        type: 3}
-      propertyPath: m_ForceIntoRT
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3624098508274271880, guid: 19d4b3f1b76ef7042973c8dc3ca190ec,
         type: 3}
       propertyPath: m_Radius
@@ -47114,6 +47114,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624098508188162136, guid: 19d4b3f1b76ef7042973c8dc3ca190ec,
+        type: 3}
+      propertyPath: m_TagString
+      value: playerAttack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19d4b3f1b76ef7042973c8dc3ca190ec, type: 3}

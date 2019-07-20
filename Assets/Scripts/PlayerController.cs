@@ -52,7 +52,10 @@ public class PlayerController : MonoBehaviour {
         verticalInput = GetVerticalInput();
 
         //make footstep sound
-        footstepSource.volume = isGrounded() ? Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput))/2 : 0;
+        footstepSource.volume = (verticalVelocity == 0) ? Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput))/2 : 0;
+
+        //animate movement
+        anim.SetFloat("Velocity", Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput)));        
 
         Jump();
 
@@ -111,7 +114,11 @@ public class PlayerController : MonoBehaviour {
         }
 
         if (curHealth < 0) {
-            curHealth = 0;
+            curHealth = 0;            
+        }
+
+        if (curHealth == 0) {
+            anim.SetTrigger("DEATH");
         }
     }
 
@@ -150,9 +157,12 @@ public class PlayerController : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.Space)) {
                 verticalVelocity = jumpHeight;
             }
+
+            anim.SetBool("Grounded", true);
         }
         else {
             verticalVelocity -= gravity * Time.deltaTime;
+            anim.SetBool("Grounded", false);
         }
     }
 
