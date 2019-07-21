@@ -2,12 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider))]
-public class Sign : MonoBehaviour {    
+public class Sign : MonoBehaviour {
     [SerializeField] string signTitle, signText;
-    [SerializeField] AudioSource signsSource;
-    [SerializeField] AudioClip signNarration;
-
     [SerializeField] PlayerController target;
 
     bool isActive;
@@ -15,18 +11,15 @@ public class Sign : MonoBehaviour {
     void Update() {
         if (Input.GetButtonDown("Fire1")) {
             Ray ray = new Ray(this.transform.position, target.transform.position - this.transform.position);
+            RaycastHit hit;
 
-            if(Physics.Raycast(ray, 2f)) {
-                signsSource.Stop();
-
-                isActive = !isActive;
-                UIManager.instance.UpdateSign(isActive, signTitle, signText);
-                target.LockPlayer(isActive);
-
-                if (isActive) {
-                    AudioManager.instance.PlayClipWithSource(signsSource, signNarration);
+            if (Physics.Raycast(ray, out hit, 2f)) {
+                if (hit.collider.gameObject.tag == target.tag) {
+                    isActive = !isActive;
+                    UIManager.instance.UpdateSign(isActive, signTitle, signText);
+                    target.LockPlayer(isActive);
                 }
             }
-        }    
+        }
     }
 }
