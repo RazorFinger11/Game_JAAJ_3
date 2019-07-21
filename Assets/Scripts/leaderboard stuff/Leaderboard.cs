@@ -13,7 +13,7 @@ public class Leaderboard : MonoBehaviour {
     List<LeaderboardEntry> entries;
 
     void Start() {
-        ShowLeaderboard();       
+        ShowLeaderboard();
     }
 
     public void ShowLeaderboard() {
@@ -39,7 +39,7 @@ public class Leaderboard : MonoBehaviour {
         //checar se ele entra no top 10 scores
         for (int i = 0; i < entries.Count; i++) {
             for (int j = i + 1; j < entries.Count; j++) {
-                if(entries[j].score > entries[i].score) {
+                if (entries[j].score > entries[i].score) {
                     //swap
                     LeaderboardEntry temp = entries[i];
                     entries[i] = entries[j];
@@ -70,8 +70,28 @@ public class Leaderboard : MonoBehaviour {
             newEntryTransform.anchoredPosition = new Vector2(0, -templateHeight * i);
 
             //change new entry values
-            newEntry.transform.Find("Pos").GetComponent<TextMeshProUGUI>().text = (i + 1).ToString();
+            newEntry.transform.Find("Pos").GetComponent<TextMeshProUGUI>().text = (i + 1).ToString() + "°";
             newEntry.transform.Find("Score").GetComponent<TextMeshProUGUI>().text = entries[i].score.ToString();
+
+            newEntry.SetActive(true);
+        }
+
+        //show a simple message if there is nothing saved
+        if (entries.Count == 0) {
+            GameObject newEntry = null;
+
+            //instanciar entry básica
+            newEntry = Instantiate(entryTemplate, entryContainer.transform);
+
+            //positioning new entry
+            RectTransform newEntryTransform = newEntry.GetComponent<RectTransform>();
+            newEntryTransform.anchoredPosition = Vector2.zero;
+
+            //change new entry values
+            newEntry.name = "No entry";
+            newEntry.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = "Sem scores...";
+            newEntry.transform.Find("Pos").GetComponent<TextMeshProUGUI>().text = "0°";
+            newEntry.transform.Find("Score").GetComponent<TextMeshProUGUI>().text = "000";
 
             newEntry.SetActive(true);
         }
