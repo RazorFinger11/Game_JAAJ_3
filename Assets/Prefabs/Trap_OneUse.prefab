@@ -48,7 +48,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   trapDamage: 15
-  trapSound: {fileID: 0}
+  trapSounds:
+  - {fileID: 8300000, guid: 209e30db45d705a49acb4f1024f413ee, type: 3}
+  - {fileID: 8300000, guid: 55e99b4a769240d458436c9a50f3ec18, type: 3}
+  - {fileID: 8300000, guid: 40680189a9dcb354ca3f78d824d79af9, type: 3}
   trapCooldown: 0
   slowdown: 0
   slowdownAmount: 0
@@ -103,6 +106,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1493092821753842, guid: 74043595188de6d4781a42f4c754973e, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198509713704404338, guid: 74043595188de6d4781a42f4c754973e,
+        type: 3}
+      propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4156560879348152, guid: 74043595188de6d4781a42f4c754973e, type: 3}
@@ -165,11 +173,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 198509713704404338, guid: 74043595188de6d4781a42f4c754973e,
-        type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 199083421449115444, guid: 74043595188de6d4781a42f4c754973e,
         type: 3}
       propertyPath: m_RenderMode
@@ -185,51 +188,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 198523794772340926, guid: 74043595188de6d4781a42f4c754973e,
-        type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 199456089515807894, guid: 74043595188de6d4781a42f4c754973e,
-        type: 3}
-      propertyPath: m_RenderMode
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 199456089515807894, guid: 74043595188de6d4781a42f4c754973e,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
-    - target: {fileID: 199456089515807894, guid: 74043595188de6d4781a42f4c754973e,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 198641350238268704, guid: 74043595188de6d4781a42f4c754973e,
-        type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 199366165561025908, guid: 74043595188de6d4781a42f4c754973e,
-        type: 3}
-      propertyPath: m_RenderMode
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 199366165561025908, guid: 74043595188de6d4781a42f4c754973e,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
-    - target: {fileID: 199366165561025908, guid: 74043595188de6d4781a42f4c754973e,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 198365527235412268, guid: 74043595188de6d4781a42f4c754973e,
-        type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 199602948538103794, guid: 74043595188de6d4781a42f4c754973e,
         type: 3}
       propertyPath: m_RenderMode
@@ -245,11 +203,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 198216944045937054, guid: 74043595188de6d4781a42f4c754973e,
+    - target: {fileID: 199366165561025908, guid: 74043595188de6d4781a42f4c754973e,
         type: 3}
-      propertyPath: looping
-      value: 0
+      propertyPath: m_RenderMode
+      value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 199366165561025908, guid: 74043595188de6d4781a42f4c754973e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 199366165561025908, guid: 74043595188de6d4781a42f4c754973e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 199330573354798692, guid: 74043595188de6d4781a42f4c754973e,
         type: 3}
       propertyPath: m_RenderMode
@@ -265,11 +233,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 198277464808731988, guid: 74043595188de6d4781a42f4c754973e,
+    - target: {fileID: 199456089515807894, guid: 74043595188de6d4781a42f4c754973e,
         type: 3}
-      propertyPath: looping
-      value: 0
+      propertyPath: m_RenderMode
+      value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 199456089515807894, guid: 74043595188de6d4781a42f4c754973e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 199456089515807894, guid: 74043595188de6d4781a42f4c754973e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 199087005774723508, guid: 74043595188de6d4781a42f4c754973e,
         type: 3}
       propertyPath: m_RenderMode
@@ -281,6 +259,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 199087005774723508, guid: 74043595188de6d4781a42f4c754973e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 199167702371438966, guid: 74043595188de6d4781a42f4c754973e,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 199167702371438966, guid: 74043595188de6d4781a42f4c754973e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 199167702371438966, guid: 74043595188de6d4781a42f4c754973e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -290,21 +283,31 @@ PrefabInstance:
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 199167702371438966, guid: 74043595188de6d4781a42f4c754973e,
+    - target: {fileID: 198523794772340926, guid: 74043595188de6d4781a42f4c754973e,
         type: 3}
-      propertyPath: m_RenderMode
-      value: 4
+      propertyPath: looping
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 199167702371438966, guid: 74043595188de6d4781a42f4c754973e,
+    - target: {fileID: 198641350238268704, guid: 74043595188de6d4781a42f4c754973e,
         type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
-    - target: {fileID: 199167702371438966, guid: 74043595188de6d4781a42f4c754973e,
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198277464808731988, guid: 74043595188de6d4781a42f4c754973e,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198216944045937054, guid: 74043595188de6d4781a42f4c754973e,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198365527235412268, guid: 74043595188de6d4781a42f4c754973e,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114682487039766256, guid: 74043595188de6d4781a42f4c754973e, type: 3}
     - {fileID: 33433688692351626, guid: 74043595188de6d4781a42f4c754973e, type: 3}

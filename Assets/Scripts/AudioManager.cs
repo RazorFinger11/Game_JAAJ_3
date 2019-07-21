@@ -32,4 +32,13 @@ public class AudioManager : MonoBehaviour {
         //play as if sound was 10 times closer to the camera
         AudioSource.PlayClipAtPoint(clip, 0.9f * mainCamera.transform.position + 0.1f * go.transform.position);        
     }
+
+    //for sounds that might be cut in the middle
+    public void PlayClipWithSource(AudioSource source, AudioClip clip) {
+        if (source.isPlaying) {
+            source.Stop();
+        }
+
+        source.PlayOneShot(clip);
+    }
 }

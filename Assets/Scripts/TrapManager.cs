@@ -10,7 +10,7 @@ public class TrapManager : MonoBehaviour
     // General
     public TrapType type;
     public int trapDamage;
-    public AudioClip trapSound;
+    public AudioClip[] trapSounds;
     Animator anim;
     GameObject player;
 
@@ -130,8 +130,9 @@ public class TrapManager : MonoBehaviour
     {
         anim.SetTrigger("Activate");
 
-        if(trapSound != null)
-        AudioManager.instance.PlayClipAtPoint(trapSound, this.gameObject);
+        if (trapSounds != null) {
+            AudioManager.instance.PlayClipAtPoint(trapSounds[Random.Range(0, trapSounds.Length)], this.gameObject);
+        }
 
         player.GetComponent<PlayerController>().SendMessage("Damage", trapDamage);
 
@@ -153,7 +154,6 @@ public class TrapManager : MonoBehaviour
         if(type == TrapType.OneUse)
         {
             this.gameObject.SetActive(false);
-            this.gameObject.GetComponent<Renderer>().enabled = false;
             this.gameObject.GetComponent<Collider>().enabled = false;
             Destroy(this.gameObject, 4.1f);
         }

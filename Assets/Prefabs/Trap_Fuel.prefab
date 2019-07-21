@@ -2245,7 +2245,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   trapDamage: 0
-  trapSound: {fileID: 8300000, guid: 52b9085a1c5621445ba69817f7fca9e8, type: 3}
+  trapSounds:
+  - {fileID: 8300000, guid: 52b9085a1c5621445ba69817f7fca9e8, type: 3}
   trapCooldown: 0
   slowdown: 0
   slowdownAmount: 0

@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6233929078528843427
 Transform:
@@ -85,7 +85,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6411199253718571362
 Transform:
@@ -4786,7 +4786,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8593815551488647810
 Transform:
@@ -4876,12 +4876,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   trapDamage: 1
-  trapSound: {fileID: 0}
+  trapSounds: []
   trapCooldown: 0
   slowdown: 0
   slowdownAmount: 0
   slowdownTime: 0
-  interval: 14
+  interval: 30
   DamagePerFuel: 0
   maxFuel: 0
   fireParticles: {fileID: 0}

@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour {
     public Animator anim;
     AudioSource footstepSource;
 
+    bool locked;
+    public bool Locked { get => locked; }
+
     // Health
     public float maxHealth;
     float curHealth;
@@ -33,9 +36,13 @@ public class PlayerController : MonoBehaviour {
     public GameObject healthPos;
     public GameObject healthScreenBlur;
 
+    public AudioSource screamSource;
+    public AudioClip[] zombieScreams;
+
     // Fuel
     int fuel;
     public int Fuel { get => fuel; set => fuel = value; }
+
     public int maxFuel = 3;
     public FuelSpawner fuelSpawnerScript;
     public GameObject fuelPickupIndicator;
@@ -90,6 +97,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void Damage(int value) {
+        if (value > 0) {
+            AudioManager.instance.PlayClipWithSource(screamSource, zombieScreams[Random.Range(0, zombieScreams.Length)]);
+        }
+
         var indicator = Instantiate(healthIndicator, healthPos.transform);
         indicator.GetComponent<TextMeshPro>().text = value.ToString();
 
@@ -113,12 +124,10 @@ public class PlayerController : MonoBehaviour {
             curHealth = maxHealth;
         }
 
-        if (curHealth < 0) {
-            curHealth = 0;            
-        }
-
-        if (curHealth == 0) {
+        if (curHealth <= 0) {
+            curHealth = 0;
             anim.SetTrigger("DEATH");
+            LockPlayer(true);
         }
 
         //update ui
@@ -153,12 +162,18 @@ public class PlayerController : MonoBehaviour {
         rb.velocity = new Vector3(rb.velocity.x, verticalVelocity, rb.velocity.z);
     }
 
+    public void LockPlayer(bool _locked) {
+        locked = _locked;
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+    }
+
     void Jump() {
         if (isGrounded()) {
             if (verticalVelocity <= 0)
                 verticalVelocity = 0;
 
-            if (Input.GetKeyDown(KeyCode.Space)) {
+            if (!locked && Input.GetKeyDown(KeyCode.Space)) {
                 verticalVelocity = jumpHeight;
             }
 
@@ -174,13 +189,21 @@ public class PlayerController : MonoBehaviour {
     #region Getting Player Input
     float GetHorizontalInput() {
         float r = 0;
-        r += Input.GetAxis("Horizontal");
+
+        if (!locked) {
+            r += Input.GetAxis("Horizontal");
+        }
+
         return Mathf.Clamp(r, -1.0f, 1.0f);
     }
 
     float GetVerticalInput() {
         float r = 0;
-        r += Input.GetAxis("Vertical");
+
+        if (!locked) {
+            r += Input.GetAxis("Vertical");
+        }
+
         return Mathf.Clamp(r, -1.0f, 1.0f);
     }
 

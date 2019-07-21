@@ -26,6 +26,10 @@ public class UIManager : MonoBehaviour {
     [SerializeField] GameObject victoryPanel;
     [SerializeField] GameObject defeatPanel;
 
+    [Space]
+    [SerializeField] GameObject signPanel;
+    [SerializeField] TextMeshProUGUI signUI;
+
     float minutes;
     float seconds;
     string niceTime;
@@ -41,8 +45,7 @@ public class UIManager : MonoBehaviour {
         }
     }
 
-    private void OnGUI()
-    {
+    private void OnGUI() {
         minutes = Mathf.Floor(Match.currentMatchTime / 60);
         seconds = Mathf.RoundToInt(Match.currentMatchTime % 60);
         niceTime = string.Format("{0:0}:{1:00}", minutes, seconds);
@@ -51,7 +54,7 @@ public class UIManager : MonoBehaviour {
     void Update() {
         if (!gameFinished) {
             if (Match.gameFinished) {
-                if (playerScript.CurHealth <= 0) { 
+                if (playerScript.CurHealth <= 0) {
                     victoryPanel.SetActive(true);
                 }
                 else {
@@ -78,7 +81,7 @@ public class UIManager : MonoBehaviour {
         else if (health > 0) {
             healthBar.sprite = lowHealth;
             crossHealth.sprite = lowHealthCross;
-        }     
+        }
         else {
             crossHealth.sprite = deadCross;
             healthUI.text = "Morto";
@@ -95,5 +98,10 @@ public class UIManager : MonoBehaviour {
         for (int i = 0; i < fuel; i++) {
             fuelBars[i].gameObject.SetActive(true);
         }
+    }
+
+    public void UpdateSign(bool state, string signText) {
+        signPanel.SetActive(state);
+        signUI.text = signText;
     }
 }

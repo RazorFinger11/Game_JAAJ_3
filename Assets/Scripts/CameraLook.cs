@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraLook : MonoBehaviour
 {
+    public PlayerController player;
     public Transform playerBody;
     public float mouseSensitivity;
 
@@ -17,8 +18,13 @@ public class CameraLook : MonoBehaviour
 
     void RotateCamera()
     {
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = Input.GetAxis("Mouse Y");
+        float mouseX = 0;
+        float mouseY = 0;
+
+        if (!player.Locked) {
+            mouseX = Input.GetAxis("Mouse X");
+            mouseY = Input.GetAxis("Mouse Y");
+        }
 
         float rotAmountX = mouseX * mouseSensitivity;
         float rotAmountY = mouseY * mouseSensitivity;
