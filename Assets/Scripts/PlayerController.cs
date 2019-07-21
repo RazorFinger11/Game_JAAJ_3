@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour {
     public bool Locked { get => locked; }
 
     // Health
+    [Space]
     public float maxHealth;
     float curHealth;
     public float CurHealth { get => curHealth; set => curHealth = value; }
@@ -40,8 +41,10 @@ public class PlayerController : MonoBehaviour {
     public AudioClip[] zombieScreams;
 
     // Fuel
+    [Space]
     int fuel;
     public int Fuel { get => fuel; set => fuel = value; }
+    public AudioClip fuelPickup;
 
     public int maxFuel = 3;
     public FuelSpawner fuelSpawnerScript;
@@ -97,41 +100,41 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void Damage(int value) {
-        if (value > 0) {
-            AudioManager.instance.PlayClipWithSource(screamSource, zombieScreams[Random.Range(0, zombieScreams.Length)]);
+        if (!Match.instance.GameFinished) {
+            if (value > 0) {
+                AudioManager.instance.PlayClipWithSource(screamSource, zombieScreams[Random.Range(0, zombieScreams.Length)]);
+            }
+
+            var indicator = Instantiate(healthIndicator, healthPos.transform);
+            indicator.GetComponent<TextMeshPro>().text = value.ToString();
+
+            healthScreenBlur.gameObject.SetActive(true);
+
+            if (value < 0) {
+                indicator.GetComponent<TextMeshPro>().color = Color.green;
+                healthScreenBlur.GetComponent<Image>().color = Color.green;
+            }
+            else {
+                healthScreenBlur.GetComponent<Image>().color = Color.red;
+            }
+
+            Destroy(indicator, 1f);
+
+            curHealth -= value;            
+
+            if (curHealth > maxHealth) {
+                curHealth = maxHealth;
+            }
+            else if (curHealth <= 0) {
+                curHealth = 0;
+                anim.SetTrigger("DEATH");
+                LockPlayer(true);
+                Match.instance.FinishGame();
+            }
+
+            //update ui
+            UIManager.instance.UpdateHealth(curHealth);
         }
-
-        var indicator = Instantiate(healthIndicator, healthPos.transform);
-        indicator.GetComponent<TextMeshPro>().text = value.ToString();
-
-        healthScreenBlur.gameObject.SetActive(true);
-
-        if(value < 0)
-        {
-            indicator.GetComponent<TextMeshPro>().color = Color.green;
-            healthScreenBlur.GetComponent<Image>().color = Color.green;
-        }
-        else
-        {
-            healthScreenBlur.GetComponent<Image>().color = Color.red;
-        }
-
-        Destroy(indicator, 1f);
-
-        curHealth -= value;
-        
-        if (curHealth > maxHealth) {
-            curHealth = maxHealth;
-        }
-
-        if (curHealth <= 0) {
-            curHealth = 0;
-            anim.SetTrigger("DEATH");
-            LockPlayer(true);
-        }
-
-        //update ui
-        UIManager.instance.UpdateHealth(curHealth);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -145,6 +148,7 @@ public class PlayerController : MonoBehaviour {
             fuelSpawnerScript.CurTime = 0;
             Destroy(other.gameObject);            
             fuel++;
+            AudioManager.instance.PlayClip(fuelPickup);
             UIManager.instance.UpdateFuel(fuel);
         }
     }

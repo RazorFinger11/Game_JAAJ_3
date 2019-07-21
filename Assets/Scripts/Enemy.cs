@@ -7,6 +7,10 @@ public class Enemy : MonoBehaviour {
     #region Attributes
     [SerializeField] GameObject target;
 
+    //if the enemy is active or not
+    bool alive;
+    public bool Alive { get { return alive; } set { alive = value; } }
+
     //this game object is just empty, its children are the actual points of teleport
     [SerializeField] GameObject spawnPoints;
     Transform[] points;
@@ -45,16 +49,18 @@ public class Enemy : MonoBehaviour {
         this.transform.LookAt(target.transform);
         firePoint.transform.LookAt(target.transform);
 
-        if (Time.time > attackDuration) {
-            //begin teleport anim (that will trigger teleport event)
-            anim.SetTrigger("Teleport");
-            attackDuration = (Time.time + anim.GetCurrentAnimatorStateInfo(0).length) + Random.Range(minAttackTime, maxAttackTime);
-        }
-        else {
-            //begin shoot anim (that will trigger shoot event)
-            if (Time.time > timeToFire) {
-                anim.SetTrigger("Shoot");
-                timeToFire = (Time.time + anim.GetCurrentAnimatorStateInfo(0).length) + 1 / Random.Range(minFireRate, maxFireRate);                
+        if (alive) {
+            if (Time.time > attackDuration) {
+                //begin teleport anim (that will trigger teleport event)
+                anim.SetTrigger("Teleport");
+                attackDuration = (Time.time + anim.GetCurrentAnimatorStateInfo(0).length) + Random.Range(minAttackTime, maxAttackTime);
+            }
+            else {
+                //begin shoot anim (that will trigger shoot event)
+                if (Time.time > timeToFire) {
+                    anim.SetTrigger("Shoot");
+                    timeToFire = (Time.time + anim.GetCurrentAnimatorStateInfo(0).length) + 1 / Random.Range(minFireRate, maxFireRate);
+                }
             }
         }
     }

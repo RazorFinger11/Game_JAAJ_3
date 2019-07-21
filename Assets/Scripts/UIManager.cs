@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 public class UIManager : MonoBehaviour {
     public static UIManager instance;
-
-    public PlayerController playerScript;
-
-    [Space]
 
     public TextMeshProUGUI healthUI;
     public Image healthBar, healthBorder;
@@ -19,16 +16,18 @@ public class UIManager : MonoBehaviour {
 
     [Space]
     public Image[] fuelBars; //from lowest to highest
-    public TextMeshProUGUI fuelUI;
 
+    [Space]
     public TextMeshProUGUI timerUI;
 
+    [Space]
     [SerializeField] GameObject victoryPanel;
+    [SerializeField] TextMeshProUGUI victoryScoreUI;
     [SerializeField] GameObject defeatPanel;
 
     [Space]
     [SerializeField] GameObject signPanel;
-    [SerializeField] TextMeshProUGUI signUI;
+    [SerializeField] TextMeshProUGUI signTitleUI, signUI;
 
     float minutes;
     float seconds;
@@ -45,26 +44,11 @@ public class UIManager : MonoBehaviour {
         }
     }
 
-    private void OnGUI() {
-        minutes = Mathf.Floor(Match.currentMatchTime / 60);
-        seconds = Mathf.RoundToInt(Match.currentMatchTime % 60);
+    void OnGUI() {
+        minutes = Mathf.Floor(Match.instance.CurrentMatchTime / 60);
+        seconds = Mathf.RoundToInt(Match.instance.CurrentMatchTime % 60);
         niceTime = string.Format("{0:0}:{1:00}", minutes, seconds);
-    }
-
-    void Update() {
-        if (!gameFinished) {
-            if (Match.gameFinished) {
-                if (playerScript.CurHealth <= 0) {
-                    victoryPanel.SetActive(true);
-                }
-                else {
-                    defeatPanel.SetActive(true);
-                }
-
-                gameFinished = true;
-            }
-            timerUI.text = niceTime;
-        }
+        timerUI.text = niceTime;
     }
 
     public void UpdateHealth(float health) {
@@ -72,7 +56,7 @@ public class UIManager : MonoBehaviour {
 
         healthBar.fillAmount = health / 100;
         healthBorder.fillAmount = (health / 100) + borderAmount;
-        healthUI.text = playerScript.CurHealth.ToString();
+        healthUI.text = health.ToString();
 
         if (health > 40) {
             healthBar.sprite = highHealth;
@@ -100,8 +84,24 @@ public class UIManager : MonoBehaviour {
         }
     }
 
-    public void UpdateSign(bool state, string signText) {
+    public void UpdateSign(bool state, string signTitle, string signText) {
         signPanel.SetActive(state);
+        signTitleUI.text = signTitle;
         signUI.text = signText;
+    }
+
+    public void FinishGame(float health) {
+        if (health <= 0) {
+            int score = Convert.ToInt16(niceTime.Replace(":", ""));
+            PlayerPrefs.SetInt("Score", score);
+            victoryPanel.SetActive(true);
+            victoryScoreUI.text = "Seu score foi de " + score;
+        }
+        else {
+            defeatPanel.SetActive(true);
+        }
+        
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }

@@ -10,9 +10,13 @@ public class CameraLook : MonoBehaviour
 
     float xAxisClamp = 0;
 
-    void Update()
-    {
+    void Start() {
+        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    void Update()
+    {        
         RotateCamera();
     }
 

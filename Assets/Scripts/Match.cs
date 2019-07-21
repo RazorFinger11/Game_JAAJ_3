@@ -3,26 +3,52 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Match : MonoBehaviour {
+    public static Match instance;
+
     [SerializeField] int matchTime;
-    public static int currentMatchTime;
-    public static bool gameFinished;
-    public PlayerController playerScript; 
+    int currentMatchTime;
+    public int CurrentMatchTime { get => currentMatchTime; }
+    float time;
 
-    float time;    
+    bool gameFinished;
+    public bool GameFinished { get { return gameFinished; } }
 
-    void Start() {
+    [SerializeField] PlayerController playerScript;
+
+    void Awake() {
+        if (instance != null && instance != this) {
+            Destroy(this.gameObject);
+        }
+        else {
+            instance = this;
+        }
+    }
+
+    void Start() {        
         currentMatchTime = matchTime;
-        gameFinished = false;
+
+        if (matchTime > 0) {
+            EnemyManager.instance.ActivateEnemies();
+        }
     }
 
     void Update() {
-        if (!gameFinished && Time.time > time) {
-            time = Time.time + 1f;
-            currentMatchTime--;
+        //arena
+        if (matchTime > 0) {
+            if (!gameFinished && Time.time > time) {
+                time = Time.time + 1f;
+                currentMatchTime--;
 
-            if (currentMatchTime == 0 || playerScript.CurHealth <= 0) {
-                gameFinished = true;
+                if (currentMatchTime == 0) {
+                    FinishGame();
+                }
             }
         }
+    }
+
+    public void FinishGame() {        
+        gameFinished = true;
+        UIManager.instance.FinishGame(playerScript.CurHealth);
+        EnemyManager.instance.DeactivateEnemies();
     }
 }

@@ -623,6 +623,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 330b2b36f620dec4ab43106ed5b6446a, type: 3}
   - {fileID: 8300000, guid: 963271d26977bc444af3a382218951f4, type: 3}
   - {fileID: 8300000, guid: 6471005c91225124eb052aeda016d72b, type: 3}
+  fuelPickup: {fileID: 8300000, guid: 33b39be12a0a0f34b8183969d68b192b, type: 3}
   maxFuel: 3
   fuelSpawnerScript: {fileID: 0}
   fuelPickupIndicator: {fileID: 0}
@@ -890,10 +891,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: hands_test_anim 1
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 0daff7feb93ae5b438b1b21e0f106ed5, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 9dc71df47359df14286c2576b1813e9a, type: 2}
     - target: {fileID: 400006, guid: 0daff7feb93ae5b438b1b21e0f106ed5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -938,6 +935,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 0daff7feb93ae5b438b1b21e0f106ed5, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9dc71df47359df14286c2576b1813e9a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daff7feb93ae5b438b1b21e0f106ed5, type: 3}
 --- !u!95 &3433823782627822275 stripped

@@ -32,7 +32,7 @@ public class Leaderboard : MonoBehaviour {
 
         //pegar último score feito pelo player apenas se ele jogou
         LeaderboardEntry playerEntry = new LeaderboardEntry("", PlayerPrefs.GetInt("Score", -1));
-        if (playerEntry.score >= 0) {
+        if (playerEntry.score > 0) {
             entries.Add(playerEntry);
         }
 
@@ -49,7 +49,7 @@ public class Leaderboard : MonoBehaviour {
         }
         entries = entries.GetRange(0, entries.Count > maxLeaderboardSize ? maxLeaderboardSize : entries.Count);
 
-        float templateHeight = 25f;
+        float templateHeight = 45f;
         for (int i = 0; i < entries.Count; i++) {
             GameObject newEntry = null;
 

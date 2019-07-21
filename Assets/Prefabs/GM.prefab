@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7848642772736589792}
   - component: {fileID: 529626129511002455}
   - component: {fileID: 6350454597010653467}
+  - component: {fileID: 5813944539278236482}
   m_Layer: 0
   m_Name: GM
   m_TagString: Untagged
@@ -47,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   matchTime: 10
   playerScript: {fileID: 0}
+  enemyManager: {fileID: 0}
 --- !u!82 &529626129511002455
 AudioSource:
   m_ObjectHideFlags: 0
@@ -162,5 +164,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6bb28779ef7343249ab8d604aff8c023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
+--- !u!114 &5813944539278236482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7848642772736589799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cdffde4879f74949af2212853001a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
