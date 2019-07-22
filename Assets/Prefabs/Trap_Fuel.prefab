@@ -372,6 +372,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &8456764603374914355
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6457778433045776910}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02099991, y: 0.049040757, z: 0.02100006}
+  m_Center: {x: 0.00000006798655, y: -0.010406963, z: -0.00000011920929}
 --- !u!1 &7725916406838509191
 GameObject:
   m_ObjectHideFlags: 0
@@ -5217,6 +5230,12 @@ PrefabInstance:
 --- !u!4 &6457778433045354028 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: ab88791e088fa2b4390b93bbee51a0c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 6457778433045744810}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6457778433045776910 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100004, guid: ab88791e088fa2b4390b93bbee51a0c9,
     type: 3}
   m_PrefabInstance: {fileID: 6457778433045744810}
   m_PrefabAsset: {fileID: 0}
