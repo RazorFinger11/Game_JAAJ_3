@@ -66,11 +66,6 @@ public class TrapManager : MonoBehaviour
             // Add the fuel in the machine
             if (curFuel <= maxFuel)
             {
-
-                var main = fireParticles.main;
-                main.startSpeed = -DamagePerFuel * CurFuel;
-                main.startSize = (DamagePerFuel * CurFuel)/15; 
-
                 // if you have more than the capacity, only add the capacity
                 if (player.GetComponent<PlayerController>().Fuel > (maxFuel - curFuel))
                 {
@@ -101,8 +96,15 @@ public class TrapManager : MonoBehaviour
         if (other.gameObject.tag == "playerAttack" && type == TrapType.Fueled)
         {
             // If he presses the button inside the playing area
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1") && curFuel > 0)
             {
+                var main = fireParticles.main;
+                main.startSpeed = -DamagePerFuel * CurFuel;
+
+                
+                main.startSize = (float)(DamagePerFuel * CurFuel) / 15;
+                Debug.Log(main.startSize);
+
                 fireParticles.gameObject.SetActive(true);
                 fireParticles.Play();
                 Activate();
@@ -112,7 +114,7 @@ public class TrapManager : MonoBehaviour
         // If your hands enter a One Use trap
         if (other.gameObject.tag == "playerAttack" && type == TrapType.OneUse)
         {
-            Debug.Log("does this count");
+            //Debug.Log("does this count");
             if (Input.GetButtonDown("Fire1"))
             {
                 explosionParticle.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 3.44f, this.transform.position.z);
