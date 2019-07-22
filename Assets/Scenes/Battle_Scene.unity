@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.14844266, g: 0.07719626, b: 0.25324246, a: 1}
+  m_IndirectSpecularColor: {r: 0.14842853, g: 0.07719267, b: 0.25323302, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10690,7 +10690,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh400704
+  m_Name: pb_Mesh14912
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -14747,7 +14747,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-244086
+  m_Name: pb_Mesh-5758
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -65126,7 +65126,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-244088
+  m_Name: pb_Mesh-5760
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -66317,6 +66317,11 @@ PrefabInstance:
       propertyPath: maxFireRate
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5685418317120479592, guid: 5c9fa76cae8e924489d5666daa231706,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1130778008739479977, guid: 5c9fa76cae8e924489d5666daa231706,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -66597,11 +66602,6 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: -0.98715156
       objectReference: {fileID: 0}
-    - target: {fileID: 5685418317120479592, guid: 5c9fa76cae8e924489d5666daa231706,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c9fa76cae8e924489d5666daa231706, type: 3}
 --- !u!1001 &907140851996944740
@@ -66694,6 +66694,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6951651288513830182, guid: f662a322970945b409f2142795f67af2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1358003141333721200, guid: f662a322970945b409f2142795f67af2,
         type: 3}
@@ -67024,11 +67029,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6951651288513830182, guid: f662a322970945b409f2142795f67af2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 816905795424106771, guid: f662a322970945b409f2142795f67af2, type: 3}
