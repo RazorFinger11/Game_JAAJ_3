@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour {
             }
 
             var indicator = Instantiate(healthIndicator, healthPos.transform);
-            indicator.GetComponent<TextMeshPro>().text = value.ToString();
+            indicator.GetComponent<TextMeshPro>().text = (-value).ToString();
 
             healthScreenBlur.gameObject.SetActive(true);
 

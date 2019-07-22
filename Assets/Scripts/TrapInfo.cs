@@ -42,8 +42,14 @@ public class TrapInfo : MonoBehaviour
 
     private void OnGUI()
     {
-        if (trapScript.type == TrapManager.TrapType.Cooldown)
-            textbox.text = trapScript.CurTime.ToString();
+        if (trapScript.type == TrapManager.TrapType.Cooldown) {
+            if (trapScript.CurTime != trapScript.trapCooldown) {
+                textbox.text = trapScript.CurTime.ToString();
+            }
+            else {
+                textbox.text = "";
+            }
+        }
 
         if(trapScript.type == TrapManager.TrapType.Fueled)
             textbox.text = trapScript.CurFuel.ToString() + "/" + trapScript.maxFuel.ToString();
