@@ -55,6 +55,11 @@ public class PlayerController : MonoBehaviour {
         footstepSource = GetComponent<AudioSource>();
         curHealth = maxHealth;
         defaultMoveSpeed = moveSpeed;
+
+        //make sure it's not paused
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Time.timeScale = 1f;
     }
 
     void Update() {
@@ -62,15 +67,14 @@ public class PlayerController : MonoBehaviour {
         verticalInput = GetVerticalInput();
 
         //make footstep sound
-        footstepSource.volume = (verticalVelocity == 0) ? Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput))/2 : 0;
+        footstepSource.volume = (verticalVelocity == 0) ? Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput)) / 2 : 0;
 
         //animate movement
-        anim.SetFloat("Velocity", Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput)));        
+        anim.SetFloat("Velocity", Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput)));
 
         Jump();
 
-        if (fuelPickupIndicator.GetComponent<TextMeshProUGUI>().color.a <= 0)
-        {
+        if (fuelPickupIndicator.GetComponent<TextMeshProUGUI>().color.a <= 0) {
             fuelPickupIndicator.SetActive(false);
 
             fuelPickupIndicator.GetComponent<TextMeshProUGUI>().color = new Vector4(fuelPickupIndicator.GetComponent<TextMeshProUGUI>().color.r, fuelPickupIndicator.GetComponent<TextMeshProUGUI>().color.g,
@@ -78,8 +82,7 @@ public class PlayerController : MonoBehaviour {
 
         }
 
-        if (healthScreenBlur.GetComponent<Image>().color.a <= 0)
-        {
+        if (healthScreenBlur.GetComponent<Image>().color.a <= 0) {
             healthScreenBlur.SetActive(false);
 
             healthScreenBlur.GetComponent<Image>().color = new Vector4(healthScreenBlur.GetComponent<Image>().color.r, healthScreenBlur.GetComponent<Image>().color.g,
@@ -87,15 +90,28 @@ public class PlayerController : MonoBehaviour {
 
         }
 
+        //pause or unpause
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            Pause();
+        }
     }
 
-    private void FixedUpdate()
-    {
+    private void FixedUpdate() {
         MovePlayer();
 
-        if (Input.GetButtonDown("Fire1"))
-        {
+        if (Input.GetButtonDown("Fire1")) {
             anim.SetTrigger("ATTACK");
+        }
+    }
+
+    public void Pause() {
+        bool paused = UIManager.instance.UpdatePause();
+
+        if (paused) {
+            locked = true;
+        }
+        else {
+            locked = false;
         }
     }
 
@@ -120,7 +136,7 @@ public class PlayerController : MonoBehaviour {
 
             Destroy(indicator, 1f);
 
-            curHealth -= value;            
+            curHealth -= value;
 
             if (curHealth > maxHealth) {
                 curHealth = maxHealth;
@@ -137,16 +153,14 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "Fuel" && fuel < maxFuel)
-        {
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.tag == "Fuel" && fuel < maxFuel) {
             fuelPickupIndicator.SetActive(true);
 
             fuelSpawnerScript.transformVectors.Add(this.transform.position);
             fuelSpawnerScript.CurFuels--;
             fuelSpawnerScript.CurTime = 0;
-            Destroy(other.gameObject);            
+            Destroy(other.gameObject);
             fuel++;
             AudioManager.instance.PlayClip(fuelPickup);
             UIManager.instance.UpdateFuel(fuel);
@@ -211,7 +225,7 @@ public class PlayerController : MonoBehaviour {
         return Mathf.Clamp(r, -1.0f, 1.0f);
     }
 
-   
+
     #endregion
 
     bool isGrounded() {

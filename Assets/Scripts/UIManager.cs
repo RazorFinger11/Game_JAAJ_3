@@ -29,6 +29,9 @@ public class UIManager : MonoBehaviour {
     [SerializeField] GameObject signPanel;
     [SerializeField] TextMeshProUGUI signTitleUI, signUI;
 
+    [Space]
+    [SerializeField] GameObject pausePanel;
+
     float minutes;
     float seconds;
     string niceTime;
@@ -49,6 +52,35 @@ public class UIManager : MonoBehaviour {
         seconds = Mathf.RoundToInt(Match.instance.CurrentMatchTime % 60);
         niceTime = string.Format("{0:0}:{1:00}", minutes, seconds);
         timerUI.text = niceTime;
+    }
+
+    public bool UpdatePause() {
+        if (pausePanel.activeInHierarchy == false) {
+            Pause();
+            return true;
+        }
+        else {
+            Unpause();
+            return false;
+        }
+    }
+
+    void Pause() {
+        // Enabling Mouse
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        pausePanel.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    void Unpause() {
+        // Disabling Mouse
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        pausePanel.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     public void UpdateHealth(float health) {
