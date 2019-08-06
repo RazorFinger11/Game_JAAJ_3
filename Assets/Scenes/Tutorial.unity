@@ -983,6 +983,16 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1977193622}
+    - target: {fileID: 4107449430165894642, guid: 2c27b2052d97f8e46bd32b5791041333,
+        type: 3}
+      propertyPath: titleKey
+      value: sign_barrel_title
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107449430165894642, guid: 2c27b2052d97f8e46bd32b5791041333,
+        type: 3}
+      propertyPath: descriptionKey
+      value: sign_barrel_desc
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c27b2052d97f8e46bd32b5791041333, type: 3}
 --- !u!1001 &568390447
@@ -1812,6 +1822,16 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1977193622}
+    - target: {fileID: 4107449430165894642, guid: 2c27b2052d97f8e46bd32b5791041333,
+        type: 3}
+      propertyPath: titleKey
+      value: sign_spikefloor_title
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107449430165894642, guid: 2c27b2052d97f8e46bd32b5791041333,
+        type: 3}
+      propertyPath: descriptionKey
+      value: sign_spikefloor_desc
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c27b2052d97f8e46bd32b5791041333, type: 3}
 --- !u!1 &840032447
@@ -2224,7 +2244,7 @@ PrefabInstance:
     - target: {fileID: 4107449430165894642, guid: 2c27b2052d97f8e46bd32b5791041333,
         type: 3}
       propertyPath: signTitle
-      value: Necromante
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4107449430165894642, guid: 2c27b2052d97f8e46bd32b5791041333,
         type: 3}
@@ -2236,6 +2256,16 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1977193622}
+    - target: {fileID: 4107449430165894642, guid: 2c27b2052d97f8e46bd32b5791041333,
+        type: 3}
+      propertyPath: titleKey
+      value: sign_necromancer_title
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107449430165894642, guid: 2c27b2052d97f8e46bd32b5791041333,
+        type: 3}
+      propertyPath: descriptionKey
+      value: sign_necromancer_desc
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c27b2052d97f8e46bd32b5791041333, type: 3}
 --- !u!1 &956217125
@@ -2920,6 +2950,51 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6951651288513830182, guid: f662a322970945b409f2142795f67af2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4852835574556323183, guid: f662a322970945b409f2142795f67af2,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4852835574556323183, guid: f662a322970945b409f2142795f67af2,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1500508091821314157, guid: f662a322970945b409f2142795f67af2,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1500508091821314157, guid: f662a322970945b409f2142795f67af2,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5992396658679466343, guid: f662a322970945b409f2142795f67af2,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5992396658679466343, guid: f662a322970945b409f2142795f67af2,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300886081806296582, guid: f662a322970945b409f2142795f67af2,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300886081806296582, guid: f662a322970945b409f2142795f67af2,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f662a322970945b409f2142795f67af2, type: 3}
 --- !u!43 &1152762288
@@ -3427,6 +3502,16 @@ PrefabInstance:
       propertyPath: signNarration
       value: 
       objectReference: {fileID: 8300000, guid: ea26c7ad2944f4747ac25587bde81adc, type: 3}
+    - target: {fileID: 4107449430165894642, guid: 2c27b2052d97f8e46bd32b5791041333,
+        type: 3}
+      propertyPath: titleKey
+      value: sign_beartrap_title
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107449430165894642, guid: 2c27b2052d97f8e46bd32b5791041333,
+        type: 3}
+      propertyPath: descriptionKey
+      value: sign_beartrap_desc
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c27b2052d97f8e46bd32b5791041333, type: 3}
 --- !u!1 &1290880816
@@ -9201,6 +9286,16 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1977193622}
+    - target: {fileID: 4107449430165894642, guid: 2c27b2052d97f8e46bd32b5791041333,
+        type: 3}
+      propertyPath: titleKey
+      value: sign_flamethrower_title
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107449430165894642, guid: 2c27b2052d97f8e46bd32b5791041333,
+        type: 3}
+      propertyPath: descriptionKey
+      value: sign_flamethrower_desc
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c27b2052d97f8e46bd32b5791041333, type: 3}
 --- !u!1001 &1860045105
@@ -10232,6 +10327,16 @@ PrefabInstance:
         type: 3}
       propertyPath: signTitle
       value: "Piscina de \xC1cido"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107449430165894642, guid: 2c27b2052d97f8e46bd32b5791041333,
+        type: 3}
+      propertyPath: titleKey
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107449430165894642, guid: 2c27b2052d97f8e46bd32b5791041333,
+        type: 3}
+      propertyPath: descriptionKey
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3059510903845968674, guid: 2c27b2052d97f8e46bd32b5791041333,
         type: 3}

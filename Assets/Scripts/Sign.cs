@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Sign : MonoBehaviour {
-    [SerializeField] string signTitle, signText;
+    [SerializeField] string titleKey, descriptionKey;
     [SerializeField] PlayerController target;
 
     bool isActive;
@@ -16,7 +16,7 @@ public class Sign : MonoBehaviour {
             if (Physics.Raycast(ray, out hit, 2f)) {
                 if (hit.collider.gameObject.tag == target.tag) {
                     isActive = !isActive;
-                    UIManager.instance.UpdateSign(isActive, signTitle, signText);
+                    UIManager.instance.UpdateSign(isActive, titleKey, descriptionKey);
                     target.LockPlayer(isActive);
                 }
             }

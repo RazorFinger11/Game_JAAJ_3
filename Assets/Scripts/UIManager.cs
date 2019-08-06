@@ -118,8 +118,8 @@ public class UIManager : MonoBehaviour {
 
     public void UpdateSign(bool state, string signTitle, string signText) {
         signPanel.SetActive(state);
-        signTitleUI.text = signTitle;
-        signUI.text = signText;
+        signTitleUI.text = LocalizationManager.instance.GetLocalizedValue(signTitle);
+        signUI.text = LocalizationManager.instance.GetLocalizedValue(signText);
     }
 
     public void FinishGame(float health) {

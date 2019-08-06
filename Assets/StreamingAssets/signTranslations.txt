@@ -1,0 +1,24 @@
+Necromante
+Desvie do tiro do Necromante se quiser morrer!
+Necromancer
+Dodge the Necromancer's magic if you want to die!
+
+Piso de Espinhos
+Caminhe pelo dispositivo para ativar os espinhos e perfurar seu corpo!
+Spike Floor
+Walk on the device to activate the spikes and pierce your body!
+
+Armadilha de Urso
+Tão forte que até diminui sua velocidade! Pise na armadilha com atenção!
+Bear Trap
+So strong it even reduces your speed! Step on the trap with caution!
+
+Barril de Pólvora
+Altamente explosivo! Ataque-o para ver o estrago!
+Gunpowder Barrel
+Highly explosive! Attack it to see the damage!
+
+Lança-Chamas
+Alimente a máquina com gasolina, então ataque-a! Ela aceita até 5 tanques, e quanto mais tiver, mais queimará!
+Flame-Thrower
+Feed the machine with gas, then attack it! It can fill up to 5 gallons, and it will burn the more you put into it! 
