@@ -3,6 +3,11 @@ Desvie do tiro do Necromante se quiser morrer!
 Necromancer
 Dodge the Necromancer's magic if you want to die!
 
+Piscina de Ácido
+Fique em cima do ácido para derreter aos pouquinhos!
+Acid Pool
+Stay on the acid to melt away little by little!
+
 Piso de Espinhos
 Caminhe pelo dispositivo para ativar os espinhos e perfurar seu corpo!
 Spike Floor

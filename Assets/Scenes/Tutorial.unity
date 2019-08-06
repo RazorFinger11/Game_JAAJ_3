@@ -10331,12 +10331,12 @@ PrefabInstance:
     - target: {fileID: 4107449430165894642, guid: 2c27b2052d97f8e46bd32b5791041333,
         type: 3}
       propertyPath: titleKey
-      value: 
+      value: sign_acidpool_title
       objectReference: {fileID: 0}
     - target: {fileID: 4107449430165894642, guid: 2c27b2052d97f8e46bd32b5791041333,
         type: 3}
       propertyPath: descriptionKey
-      value: 
+      value: sign_acidpool_desc
       objectReference: {fileID: 0}
     - target: {fileID: 3059510903845968674, guid: 2c27b2052d97f8e46bd32b5791041333,
         type: 3}
