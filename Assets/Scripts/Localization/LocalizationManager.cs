@@ -24,9 +24,6 @@ public class LocalizationManager : MonoBehaviour {
         }
 
         DontDestroyOnLoad(gameObject);
-    }
-
-    void Start() {
         LoadLocalizedText("en.json");
     }
 
@@ -41,8 +38,7 @@ public class LocalizationManager : MonoBehaviour {
             for (int i = 0; i < loadedData.items.Length; i++) {
                 localizedText.Add(loadedData.items[i].key, loadedData.items[i].value);
             }
-
-            UpdateText(true);
+            
             Debug.Log("Data loaded! Dictionary contains " + localizedText.Count + " entries!");
         }
         else {
@@ -50,6 +46,10 @@ public class LocalizationManager : MonoBehaviour {
         }
 
         ready = true;
+    }
+
+    public void UpdateLocalizedTexts() {
+        UpdateText(true);
     }
 
     public string GetLocalizedValue(string key) {

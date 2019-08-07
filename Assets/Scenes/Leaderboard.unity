@@ -447,7 +447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a238917694045fd42b4b854bac1b32b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: tutorial_name_placeholder
+  key: highscore_name_placeholder
 --- !u!1 &86340323
 GameObject:
   m_ObjectHideFlags: 0
@@ -2429,7 +2429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a238917694045fd42b4b854bac1b32b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: tutorial_menu
+  key: highscore_menu
 --- !u!1 &1705320920
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,6 +24,7 @@ public class UIManager : MonoBehaviour {
     [SerializeField] GameObject victoryPanel;
     [SerializeField] TextMeshProUGUI victoryScoreUI;
     [SerializeField] GameObject defeatPanel;
+    [SerializeField] string scoreKey;
 
     [Space]
     [SerializeField] GameObject signPanel;
@@ -47,6 +48,13 @@ public class UIManager : MonoBehaviour {
         }
     }
 
+    void Start() {
+        LocalizationManager.instance.UpdateLocalizedTexts(); //translate all elements of canvas
+        pausePanel.SetActive(false);
+        victoryPanel.SetActive(false);
+        defeatPanel.SetActive(false);
+    }
+
     void OnGUI() {
         minutes = Mathf.Floor(Match.instance.CurrentMatchTime / 60);
         seconds = Mathf.RoundToInt(Match.instance.CurrentMatchTime % 60);
@@ -56,7 +64,7 @@ public class UIManager : MonoBehaviour {
 
     public bool UpdatePause() {
         if (pausePanel.activeInHierarchy == false) {
-            Pause();
+            Pause();            
             return true;
         }
         else {
@@ -127,7 +135,7 @@ public class UIManager : MonoBehaviour {
             int score = Convert.ToInt16(niceTime.Replace(":", ""));
             PlayerPrefs.SetInt("Score", score);
             victoryPanel.SetActive(true);
-            victoryScoreUI.text = "Seu score foi de " + score;
+            victoryScoreUI.text = LocalizationManager.instance.GetLocalizedValue(scoreKey) + " " + score;
         }
         else {
             defeatPanel.SetActive(true);
