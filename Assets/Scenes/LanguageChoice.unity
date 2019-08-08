@@ -307,6 +307,7 @@ MonoBehaviour:
     flagSprite: {fileID: 21300000, guid: 01994412525e4d3458460c42360859b1, type: 3}
   flagElement: {fileID: 301762088}
   languageElement: {fileID: 1059366063}
+  loadManager: {fileID: 2103591517}
 --- !u!1 &301762086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1486,3 +1487,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b8b291f8ece45348814745bb8fb10f3, type: 3}
+--- !u!114 &2103591517 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5813944539278236482, guid: 7b8b291f8ece45348814745bb8fb10f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1870300427}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cdffde4879f74949af2212853001a34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

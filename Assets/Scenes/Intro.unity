@@ -204,7 +204,7 @@ MonoBehaviour:
   - fileName: ptbr.json
     clip: {fileID: 32900000, guid: d830edca63767c143b3a8f865319bf98, type: 3}
   - fileName: en.json
-    clip: {fileID: 32900000, guid: d830edca63767c143b3a8f865319bf98, type: 3}
+    clip: {fileID: 32900000, guid: f2288379fc436fd4ebd80907821ac2b2, type: 3}
   loadManager: {fileID: 1092244735}
 --- !u!1 &932969215
 GameObject:
