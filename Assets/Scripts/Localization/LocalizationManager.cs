@@ -24,7 +24,6 @@ public class LocalizationManager : MonoBehaviour {
         }
 
         DontDestroyOnLoad(gameObject);
-        LoadLocalizedText("en.json");
     }
 
     public void LoadLocalizedText(string fileName) {
