@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LanguageManager : MonoBehaviour {
     [SerializeField] Language[] languages;
 
     [Space]
-
     [SerializeField] Image flagElement;
     [SerializeField] TextMeshProUGUI languageElement;
+
+    [Space]
+    [SerializeField] LoadManager loadManager;
 
     Language currentLanguage;
     int currentIndex;
@@ -44,7 +45,7 @@ public class LanguageManager : MonoBehaviour {
 
     public void ConfirmLanguage(string sceneName) {
         LocalizationManager.instance.LoadLocalizedText(currentLanguage.fileName);
-        SceneManager.LoadScene(sceneName);
+        loadManager.LoadScene(sceneName);
     }
 }
 

@@ -200,6 +200,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 932969216}
+  clips:
+  - fileName: ptbr.json
+    clip: {fileID: 32900000, guid: d830edca63767c143b3a8f865319bf98, type: 3}
+  - fileName: en.json
+    clip: {fileID: 32900000, guid: d830edca63767c143b3a8f865319bf98, type: 3}
   loadManager: {fileID: 1092244735}
 --- !u!1 &932969215
 GameObject:

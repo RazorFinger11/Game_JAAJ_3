@@ -11,9 +11,11 @@ public class LocalizationManager : MonoBehaviour {
 
     Dictionary<string, string> localizedText;
     string missingValue = "Localized string not found!";
+    string fileName;
     bool ready;
 
-    public bool Ready { get { return ready; } }
+    public string FileName { get => fileName; }
+    public bool Ready { get { return ready; } }    
 
     void Awake() {
         if (instance != null && instance != this) {
@@ -26,9 +28,9 @@ public class LocalizationManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
     }
 
-    public void LoadLocalizedText(string fileName) {
+    public void LoadLocalizedText(string _fileName) {
         localizedText = new Dictionary<string, string>();
-        string filePath = Path.Combine(Application.streamingAssetsPath, fileName);
+        string filePath = Path.Combine(Application.streamingAssetsPath, _fileName);
 
         if (File.Exists(filePath)) {
             string dataAsJson = File.ReadAllText(filePath);
@@ -37,6 +39,8 @@ public class LocalizationManager : MonoBehaviour {
             for (int i = 0; i < loadedData.items.Length; i++) {
                 localizedText.Add(loadedData.items[i].key, loadedData.items[i].value);
             }
+
+            fileName = _fileName;
             
             Debug.Log("Data loaded! Dictionary contains " + localizedText.Count + " entries!");
         }
