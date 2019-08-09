@@ -25,6 +25,7 @@ public class UIManager : MonoBehaviour {
     [SerializeField] TextMeshProUGUI victoryScoreUI;
     [SerializeField] GameObject defeatPanel;
     [SerializeField] string scoreKey;
+    [SerializeField] string deathKey;
 
     [Space]
     [SerializeField] GameObject signPanel;
@@ -108,7 +109,7 @@ public class UIManager : MonoBehaviour {
         }
         else {
             crossHealth.sprite = deadCross;
-            healthUI.text = "Morto";
+            healthUI.text = LocalizationManager.instance.GetLocalizedValue(deathKey);
         }
     }
 

@@ -8,6 +8,7 @@ public class Leaderboard : MonoBehaviour {
     [SerializeField] GameObject entryContainer; //empty gameObject to become parent
     [SerializeField] GameObject entryTemplate; //template for fixed highscores
     [SerializeField] GameObject newEntryTemplate; //template that can have name inputted in (i guess inputted doesn't exist but whatevs)
+    [SerializeField] string noScoresKey;
 
     int maxLeaderboardSize = 10;
     List<LeaderboardEntry> entries;
@@ -89,7 +90,7 @@ public class Leaderboard : MonoBehaviour {
 
             //change new entry values
             newEntry.name = "No entry";
-            newEntry.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = "Sem scores...";
+            newEntry.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = LocalizationManager.instance.GetLocalizedValue(noScoresKey);
             newEntry.transform.Find("Pos").GetComponent<TextMeshProUGUI>().text = "0°";
             newEntry.transform.Find("Score").GetComponent<TextMeshProUGUI>().text = "000";
 
